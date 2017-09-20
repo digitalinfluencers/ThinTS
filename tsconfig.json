@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": "./src",
+    "inlineSourceMap": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "es6",
+      "es2015"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jasmine",
+      "reflect-metadata",
+      "express"
+    ]
+  }
+}

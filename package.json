@@ -1,0 +1,36 @@
+{
+  "name": "thints",
+  "version": "0.0.1",
+  "description": "A Node.js RestAPI Framework based in Angular2+ flow and Typescript.",
+  "repository": "https://github.com/murilopl/ThinTS.git",
+  "homepage": "https://github.com/murilopl/ThinTS",
+  "scripts": {
+    "clean:dist": "rimraf -- dist",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "karma": "karma start",
+    "build": "npm run clean:dist && npm run tsc",
+    "test": "npm run build && npm run karma",
+    "node": "node dist",
+    "serve": "npm run build && npm run node",
+    "docs": "typedoc  --theme markdown --mode file --out  docs/ src/"
+  },
+  "author": "Murilo Parente <muriloparentel@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.0.37",
+    "@types/jasmine": "^2.5.54",
+    "@types/node": "^8.0.28",
+    "@types/reflect-metadata": "0.0.5",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "reflect-metadata": "^0.1.10"
+  }
+}
