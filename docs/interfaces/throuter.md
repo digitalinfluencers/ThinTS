@@ -22,7 +22,7 @@
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata.ts:382](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L382)*
+*Defined in [metadata/th_router.ts:30](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_router.ts#L30)*
 
 
 

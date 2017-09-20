@@ -26,7 +26,7 @@
 
 
 
-*Defined in [di/injector_tree.ts:12](https://github.com/murilopl/ThinTS/blob/master/src/di/injector_tree.ts#L12)*
+*Defined in [di/injector_tree.ts:12](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L12)*
 
 
 
@@ -48,7 +48,7 @@
 
 
 
-*Defined in [di/injector_tree.ts:13](https://github.com/murilopl/ThinTS/blob/master/src/di/injector_tree.ts#L13)*
+*Defined in [di/injector_tree.ts:13](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L13)*
 
 
 
@@ -79,7 +79,7 @@ ___
 
 
 
-*Defined in [di/injector_tree.ts:14](https://github.com/murilopl/ThinTS/blob/master/src/di/injector_tree.ts#L14)*
+*Defined in [di/injector_tree.ts:14](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L14)*
 
 
 

@@ -26,7 +26,7 @@
 
 **●  basePath**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata.ts:94](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L94)*
+*Defined in [metadata/th_module.ts:55](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L55)*
 
 
 
@@ -53,12 +53,13 @@ ___
 
 **●  controllers**:  *`any`[]* 
 
-*Defined in [metadata.ts:128](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L128)*
+*Defined in [metadata/th_module.ts:88](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L88)*
 
 
 
 Import all controllers.
-*__example__*:     
+
+    
      @ThController()
     class ConsoleController {
      log(text: string) {
@@ -83,7 +84,6 @@ Import all controllers.
 
 
 
-
 ___
 
 <a id="imports"></a>
@@ -92,7 +92,7 @@ ___
 
 **●  imports**:  *`any`[]* 
 
-*Defined in [metadata.ts:247](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L247)*
+*Defined in [metadata/th_module.ts:207](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L207)*
 
 
 
@@ -139,9 +139,9 @@ ___
 
 ### «Optional» middlewares
 
-**●  middlewares**:  *`any`[]* 
+**●  middlewares**:  *[[ThMiddlewareImplements](thmiddlewareimplements.md)⎮`RequestHandler`]* 
 
-*Defined in [metadata.ts:290](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L290)*
+*Defined in [metadata/th_module.ts:250](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L250)*
 
 
 
@@ -187,7 +187,7 @@ ___
 
 **●  models**:  *`any`[]* 
 
-*Defined in [metadata.ts:165](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L165)*
+*Defined in [metadata/th_module.ts:125](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L125)*
 
 
 
@@ -230,7 +230,7 @@ ___
 
 **●  routers**:  *`any`[]* 
 
-*Defined in [metadata.ts:202](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L202)*
+*Defined in [metadata/th_module.ts:162](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_module.ts#L162)*
 
 
 

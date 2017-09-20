@@ -26,7 +26,7 @@
 
 
 
-*Defined in [module_resolver.ts:19](https://github.com/murilopl/ThinTS/blob/master/src/module_resolver.ts#L19)*
+*Defined in [module_resolver.ts:21](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L21)*
 
 
 
@@ -49,7 +49,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:20](https://github.com/murilopl/ThinTS/blob/master/src/module_resolver.ts#L20)*
+*Defined in [module_resolver.ts:22](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L22)*
 
 
 
@@ -72,7 +72,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:21](https://github.com/murilopl/ThinTS/blob/master/src/module_resolver.ts#L21)*
+*Defined in [module_resolver.ts:23](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L23)*
 
 
 
@@ -95,7 +95,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:22](https://github.com/murilopl/ThinTS/blob/master/src/module_resolver.ts#L22)*
+*Defined in [module_resolver.ts:24](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L24)*
 
 
 

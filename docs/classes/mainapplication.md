@@ -26,7 +26,7 @@
 
 
 
-*Defined in [main_application.ts:17](https://github.com/murilopl/ThinTS/blob/master/src/main_application.ts#L17)*
+*Defined in [main_application.ts:17](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/main_application.ts#L17)*
 
 
 
@@ -56,7 +56,7 @@
 
 
 
-*Defined in [main_application.ts:21](https://github.com/murilopl/ThinTS/blob/master/src/main_application.ts#L21)*
+*Defined in [main_application.ts:21](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/main_application.ts#L21)*
 
 
 

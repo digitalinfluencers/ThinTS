@@ -23,6 +23,8 @@
 * [POST](interfaces/post.md)
 * [PUT](interfaces/put.md)
 * [ThController](interfaces/thcontroller.md)
+* [ThMiddleware](interfaces/thmiddleware.md)
+* [ThMiddlewareImplements](interfaces/thmiddlewareimplements.md)
 * [ThModel](interfaces/thmodel.md)
 * [ThModule](interfaces/thmodule.md)
 * [ThRouter](interfaces/throuter.md)

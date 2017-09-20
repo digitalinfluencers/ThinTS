@@ -26,7 +26,7 @@
 
 
 
-*Defined in [express_controller.ts:16](https://github.com/murilopl/ThinTS/blob/master/src/express_controller.ts#L16)*
+*Defined in [express_controller.ts:16](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/express_controller.ts#L16)*
 
 
 
@@ -48,7 +48,7 @@
 
 
 
-*Defined in [express_controller.ts:22](https://github.com/murilopl/ThinTS/blob/master/src/express_controller.ts#L22)*
+*Defined in [express_controller.ts:22](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/express_controller.ts#L22)*
 
 
 

@@ -4,6 +4,9 @@
 
 # Interface: PARAM
 
+*__todo__*: 
+
+
 
 ## Properties
 <a id="name"></a>
@@ -12,7 +15,7 @@
 
 **●  name**:  *`string`* 
 
-*Defined in [metadata.ts:590](https://github.com/murilopl/ThinTS/blob/master/src/metadata.ts#L590)*
+*Defined in [metadata/th_router_methods.ts:219](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_router_methods.ts#L219)*
 
 
 
