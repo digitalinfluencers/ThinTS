@@ -7,12 +7,14 @@
  */
 
 import {checkClassHasDecoratorType, ThModule} from "./metadata";
-import {Reflection} from "./util/reflection";
-import {stringify} from "./util/stringify";
+import {Reflection} from "./metadata/reflection";
+import {stringify} from "./util";
 import {InjectorBranch, InjectorBranch_} from "./di/injector_tree";
 import * as express from "express";
 import {ExpressController} from "./express_controller";
-import {Router} from "express";
+import {RequestHandler, Router} from "express";
+import {isClass} from "./util";
+import {ThMiddlewareImplements} from "./metadata/th_middleware";
 
 
 export abstract class ModuleResolver {
@@ -38,6 +40,7 @@ class ModuleResolver_ extends ModuleResolver {
     instance: any;
     routersCache: any[] = [];
     router: any = express.Router();
+    middlewaresCache: any[] = [];
 
     constructor(private module: any, parent?: ModuleResolver) {
         super();
@@ -61,14 +64,14 @@ class ModuleResolver_ extends ModuleResolver {
     _resolveControllersAndModels() {
         const controllers = this.metadata._controllers || [];
         for(const controller of controllers) {
-            if (!checkClassHasDecoratorType('Controller', controller)) {
-                this._throwInvalid('Controller', controller);
+            if (!checkClassHasDecoratorType('ThController', controller)) {
+                this._throwInvalid('ThController', controller);
             }
         }
         const models = this.metadata._models || [];
         for(const model of models) {
-            if (!checkClassHasDecoratorType('Model', model)) {
-                this._throwInvalid('Model', model);
+            if (!checkClassHasDecoratorType('ThModel', model)) {
+                this._throwInvalid('ThModel', model);
             }
         }
 
@@ -94,14 +97,30 @@ class ModuleResolver_ extends ModuleResolver {
         if (!middlewares) {
             return;
         }
-        middlewares.forEach(m => this.router.use(m));
+        middlewares.forEach((md: any) => {
+            if (!isClass(md)) {
+                this.router.use(md);
+                return;
+            }
+            if (!checkClassHasDecoratorType('ThMiddleware', md)) {
+                this._throwInvalid('ThMiddleware', md);
+            }
+            const deps = Reflection.parameters(md);
+            const resolvedDeps = deps.map((d: any) => this.injectorTree.get(d));
+            const instance: ThMiddlewareImplements = new md(...resolvedDeps);
+            if (typeof instance.handler !== "function") {
+                this._throwInvalid('ThMiddlewareImplements', md);
+            }
+            this.middlewaresCache.push(instance);
+            this.router.use((...args: any[]) => (<any>instance.handler)(...args));
+        });
     }
 
     _resolveRouters() {
         const routers = this.metadata._routers || [];
         const resolvedRouters = routers.map((router: any) => {
-            if (!checkClassHasDecoratorType('Router', router)) {
-                this._throwInvalid("Router", router);
+            if (!checkClassHasDecoratorType('ThRouter', router)) {
+                this._throwInvalid("ThRouter", router);
             }
             const deps = Reflection.parameters(router);
             const resolvedDeps = deps.map((d: any) => this.injectorTree.get(d));
@@ -165,7 +184,7 @@ export class ModuleMetadata {
     _controllers: any[]|null;
     _models: any[]|null;
     _basePath: string|null;
-    _middlewares: any[]|null;
+    _middlewares: [ThMiddlewareImplements|RequestHandler]|null;
     _imports: any[]|null;
     _routers: any[]|null;
 

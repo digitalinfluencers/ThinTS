@@ -6,7 +6,7 @@
  * found in the LICENSE file.
  */
 
-import {Reflection} from "../util/reflection";
+import {Reflection} from "../metadata/reflection";
 
 export abstract class InjectorBranch {
     abstract get<T>(cls: any): T;

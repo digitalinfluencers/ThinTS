@@ -6,6 +6,37 @@
  * found in the LICENSE file.
  */
 
+import {Reflection} from "./reflection";
+
+/**
+ * @internal
+ * @hidden
+ * @whatItDoes Check Class Decorator
+ *
+ * <pre><code>
+ *  @ThModule()
+ * class MyModule {}
+ *
+ * checkClassHasDecoratorType('ThModule', MyModule); // true
+ * checkClassHasDecoratorType('ThRouter', MyModule); // false
+ * </pre></code>
+ *
+ * @description
+ * Returns the boolean value that represents whether
+ * the past class has the decorator or not.
+ *
+ * @stable
+ */
+export function checkClassHasDecoratorType(type: string, cls: any) {
+    const decorators = Reflection.decorators(cls);
+    for (const {name} of decorators) {
+        if (name === type) {
+            return true;
+        }
+    }
+    return false;
+}
+
 /**
  * @internal
  * @hidden

@@ -28,3 +28,17 @@ export function stringify(d: any): string {
     }
     return ''+d;
 }
+
+
+/**
+ * @internal
+ * @hidden
+ * @param func
+ * @returns {boolean}
+ */
+export function isClass(func: any): boolean {
+    if (typeof func !== 'function') {
+        return false;
+    }
+    return /^class\s/.test(Function.prototype.toString.call(func));
+}

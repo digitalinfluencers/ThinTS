@@ -11,8 +11,6 @@
     "karma": "karma start",
     "build": "npm run clean:dist && npm run tsc",
     "test": "npm run build && npm run karma",
-    "node": "node dist",
-    "serve": "npm run build && npm run node",
     "docs": "typedoc  --theme markdown --mode file --out  docs/ src/"
   },
   "author": "Murilo Parente <muriloparentel@gmail.com>",
