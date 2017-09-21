@@ -6,7 +6,7 @@
  * found in the LICENSE file.
  */
 
-import {ThController} from "./core";
+import {ThController} from "./index";
 import * as express from "express";
 
 

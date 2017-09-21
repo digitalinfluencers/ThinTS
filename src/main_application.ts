@@ -6,7 +6,7 @@
  * found in the LICENSE file.
  */
 
-import { ExpressController, InjectorBranch, ModuleResolver, ThModule } from "./core";
+import { ExpressController, InjectorBranch, ModuleResolver, ThModule } from "./index";
 
 
 @ThModule({
@@ -18,9 +18,10 @@ export class MainApplication {
 
     constructor(expressController: ExpressController, injectorBranch: InjectorBranch) {}
 
-    static bootstrap(apiModule: any) {
+    static bootstrap(apiModule: any): ModuleResolver {
         const mainResolved = ModuleResolver.create(MainApplication);
         const apiResolved  = ModuleResolver.create(apiModule, mainResolved);
+        return mainResolved;
     }
 
 }

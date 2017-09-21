@@ -6,7 +6,7 @@
  * found in the LICENSE file.
  */
 
-import {createClassDecorator} from "src/metadata/util";
+import {createClassDecorator} from "./util";
 import {ThMiddlewareImplements} from "./th_middleware";
 import {RequestHandler} from "express";
 

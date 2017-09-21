@@ -1,4 +1,5 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
@@ -25,9 +26,16 @@
     ],
     "types": [
       "node",
-      "jasmine",
       "reflect-metadata",
       "express"
     ]
-  }
+  },
+  "include": [
+    "./src/**/*.ts",
+  ],
+  "exclude": [
+    "./dist",
+    "./node_modules",
+    "**/*.d.ts"
+  ]
 }
