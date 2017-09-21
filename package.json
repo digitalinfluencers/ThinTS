@@ -11,16 +11,8 @@
   "engines": {
     "node": ">=7.6.0"
   },
+  "license": "MIT",
   "homepage": "https://github.com/murilopl/ThinTS",
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "validate-commit-msg": {
-      "types": "conventional-commit-types",
-      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
-    }
-  },
   "scripts": {
     "clean:dist": "rimraf -- dist",
     "clean:cache": "rimraf -- .cache",
@@ -30,9 +22,18 @@
     "test": "jest && npm run clean:cache",
     "test:watch": "jest --watch && npm run clean:cache",
     "docs": "typedoc  --theme markdown --mode file --out  docs/ src/",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
   },
-  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
+    }
+  },
   "devDependencies": {
     "@types/express": "^4.0.37",
     "@types/jest": "^20.0.8",
