@@ -4,6 +4,9 @@
 
 # Class: MainApplication
 
+
+ThinTS start point, use MainApplication.bootstrap to resolve your app module.
+
 ## Index
 
 ### Constructors
@@ -26,7 +29,7 @@
 
 
 
-*Defined in [main_application.ts:17](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/main_application.ts#L17)*
+*Defined in [main_application.ts:21](https://github.com/murilopl/ThinTS/blob/1882421/src/main_application.ts#L21)*
 
 
 
@@ -51,12 +54,12 @@
 
 ### «Static» bootstrap
 
-► **bootstrap**(apiModule: *`any`*): `void`
+► **bootstrap**(apiModule: *`any`*): [ModuleResolver](moduleresolver.md)
 
 
 
 
-*Defined in [main_application.ts:21](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/main_application.ts#L21)*
+*Defined in [main_application.ts:25](https://github.com/murilopl/ThinTS/blob/1882421/src/main_application.ts#L25)*
 
 
 
@@ -70,7 +73,7 @@
 
 
 
-**Returns:** `void`
+**Returns:** [ModuleResolver](moduleresolver.md)
 
 
 

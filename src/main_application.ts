@@ -10,7 +10,9 @@ import {InjectorBranch} from "./di/injector_tree";
 import {ModuleResolver} from "./module_resolver";
 import {ThModule} from "./metadata/th_module";
 
-
+/**
+ * ThinTS start point, use MainApplication.bootstrap to resolve your app module.
+ */
 @ThModule({
     controllers: [
         ExpressController

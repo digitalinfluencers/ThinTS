@@ -16,7 +16,9 @@ import {RequestHandler, Router} from "express";
 import {isClass} from "./util";
 import {ThMiddlewareImplements} from "./metadata/th_middleware";
 
-
+/**
+ * Responsible to compile and manage all modules.
+ */
 export abstract class ModuleResolver {
     abstract getInjectorTree(): InjectorBranch;
     abstract getParent(): ModuleResolver|null;

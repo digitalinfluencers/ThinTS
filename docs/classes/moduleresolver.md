@@ -4,11 +4,16 @@
 
 # Class: ModuleResolver
 
+
+Responsible to compile and manage all modules.
+
 ## Index
 
 ### Methods
 
+* [getChildren](moduleresolver.md#getchildren)
 * [getInjectorTree](moduleresolver.md#getinjectortree)
+* [getModuleInstance](moduleresolver.md#getmoduleinstance)
 * [getParent](moduleresolver.md#getparent)
 * [getRouter](moduleresolver.md#getrouter)
 * [create](moduleresolver.md#create)
@@ -17,6 +22,61 @@
 
 ---
 ## Methods
+<a id="getchildren"></a>
+
+###  getChildren
+
+► **getChildren**(cls: *`any`*): [ModuleResolver](moduleresolver.md)⎮`null`
+
+► **getChildren**T(cls: *`T`*): `T`
+
+
+
+
+*Defined in [module_resolver.ts:26](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L26)*
+
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| cls | `any`   |  - |
+
+
+
+
+
+**Returns:** [ModuleResolver](moduleresolver.md)⎮`null`
+
+
+
+
+*Defined in [module_resolver.ts:27](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L27)*
+
+
+
+**Type parameters:**
+
+#### T 
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| cls | `T`   |  - |
+
+
+
+
+
+**Returns:** `T`
+
+
+
+
+
+___
+
 <a id="getinjectortree"></a>
 
 ###  getInjectorTree
@@ -26,13 +86,36 @@
 
 
 
-*Defined in [module_resolver.ts:21](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L21)*
+*Defined in [module_resolver.ts:23](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L23)*
 
 
 
 
 
 **Returns:** [InjectorBranch](injectorbranch.md)
+
+
+
+
+
+___
+
+<a id="getmoduleinstance"></a>
+
+###  getModuleInstance
+
+► **getModuleInstance**(): `any`
+
+
+
+
+*Defined in [module_resolver.ts:28](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L28)*
+
+
+
+
+
+**Returns:** `any`
 
 
 
@@ -49,7 +132,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:22](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L22)*
+*Defined in [module_resolver.ts:24](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L24)*
 
 
 
@@ -72,7 +155,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:23](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L23)*
+*Defined in [module_resolver.ts:25](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L25)*
 
 
 
@@ -95,7 +178,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:24](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/module_resolver.ts#L24)*
+*Defined in [module_resolver.ts:29](https://github.com/murilopl/ThinTS/blob/1882421/src/module_resolver.ts#L29)*
 
 
 

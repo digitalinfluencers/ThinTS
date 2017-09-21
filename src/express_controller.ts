@@ -10,6 +10,9 @@ import {ThController} from "./index";
 import * as express from "express";
 
 
+/**
+ * Responsible to manage Express App instance.
+ */
 @ThController()
 export class ExpressController {
 

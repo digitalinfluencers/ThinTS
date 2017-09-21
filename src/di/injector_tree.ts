@@ -8,6 +8,9 @@
 
 import {Reflection} from "../metadata/reflection";
 
+/**
+ * Responsible to manage all dependencies in modules.
+ */
 export abstract class InjectorBranch {
     abstract get<T>(cls: any): T|null;
     abstract get(cls: any): any|null;

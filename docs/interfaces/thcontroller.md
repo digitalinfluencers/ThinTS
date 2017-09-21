@@ -22,7 +22,7 @@
 
 
 
-*Defined in [metadata/th_controller.ts:32](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/metadata/th_controller.ts#L32)*
+*Defined in [metadata/th_controller.ts:32](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_controller.ts#L32)*
 
 
 

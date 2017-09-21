@@ -4,6 +4,9 @@
 
 # Class: InjectorBranch
 
+
+Responsible to manage all dependencies in modules.
+
 ## Index
 
 ### Methods
@@ -19,14 +22,14 @@
 
 ###  get
 
-► **get**T(cls: *`any`*): `T`
+► **get**T(cls: *`any`*): `T`⎮`null`
 
-► **get**(cls: *`any`*): `any`
-
-
+► **get**(cls: *`any`*): `any`⎮`null`
 
 
-*Defined in [di/injector_tree.ts:12](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L12)*
+
+
+*Defined in [di/injector_tree.ts:15](https://github.com/murilopl/ThinTS/blob/1882421/src/di/injector_tree.ts#L15)*
 
 
 
@@ -43,12 +46,12 @@
 
 
 
-**Returns:** `T`
+**Returns:** `T`⎮`null`
 
 
 
 
-*Defined in [di/injector_tree.ts:13](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L13)*
+*Defined in [di/injector_tree.ts:16](https://github.com/murilopl/ThinTS/blob/1882421/src/di/injector_tree.ts#L16)*
 
 
 
@@ -62,7 +65,7 @@
 
 
 
-**Returns:** `any`
+**Returns:** `any`⎮`null`
 
 
 
@@ -79,7 +82,7 @@ ___
 
 
 
-*Defined in [di/injector_tree.ts:14](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/di/injector_tree.ts#L14)*
+*Defined in [di/injector_tree.ts:17](https://github.com/murilopl/ThinTS/blob/1882421/src/di/injector_tree.ts#L17)*
 
 
 

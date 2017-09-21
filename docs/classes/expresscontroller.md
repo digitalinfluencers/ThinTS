@@ -4,6 +4,9 @@
 
 # Class: ExpressController
 
+
+Responsible to manage Express App instance.
+
 ## Index
 
 ### Constructors
@@ -26,7 +29,7 @@
 
 
 
-*Defined in [express_controller.ts:16](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/express_controller.ts#L16)*
+*Defined in [express_controller.ts:19](https://github.com/murilopl/ThinTS/blob/1882421/src/express_controller.ts#L19)*
 
 
 
@@ -48,7 +51,7 @@
 
 
 
-*Defined in [express_controller.ts:22](https://github.com/murilopl/ThinTS/blob/0e1ef2c/src/express_controller.ts#L22)*
+*Defined in [express_controller.ts:25](https://github.com/murilopl/ThinTS/blob/1882421/src/express_controller.ts#L25)*
 
 
 
