@@ -1,6 +1,9 @@
+/**
+ * Responsible to manage all dependencies in modules.
+ */
 export declare abstract class InjectorBranch {
-    abstract get<T>(cls: any): T;
-    abstract get(cls: any): any;
+    abstract get<T>(cls: any): T | null;
+    abstract get(cls: any): any | null;
     abstract isDeclared(cls: any): boolean;
 }
 /**
@@ -16,5 +19,4 @@ export declare class InjectorBranch_ extends InjectorBranch {
     get<T = any>(controller: any): any;
     _initiate(controller: any): any;
     _throwInvalid(cls: any): void;
-    _throwNull(cls: any): void;
 }

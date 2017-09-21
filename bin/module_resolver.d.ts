@@ -10,10 +10,16 @@ import { ThModule } from "./metadata";
 import { InjectorBranch } from "./di/injector_tree";
 import { RequestHandler, Router } from "express";
 import { ThMiddlewareImplements } from "./metadata/th_middleware";
+/**
+ * Responsible to compile and manage all modules.
+ */
 export declare abstract class ModuleResolver {
     abstract getInjectorTree(): InjectorBranch;
     abstract getParent(): ModuleResolver | null;
     abstract getRouter(): Router;
+    abstract getChildren(cls: any): ModuleResolver | null;
+    abstract getChildren<T>(cls: T): T;
+    abstract getModuleInstance(): any;
     static create(module: any, parent?: ModuleResolver): ModuleResolver;
 }
 /**

@@ -18,6 +18,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("./index");
 const express = require("express");
+/**
+ * Responsible to manage Express App instance.
+ */
 let ExpressController = class ExpressController {
     constructor() {
         this._app = express();
@@ -31,4 +34,4 @@ ExpressController = __decorate([
     __metadata("design:paramtypes", [])
 ], ExpressController);
 exports.ExpressController = ExpressController;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhwcmVzc19jb250cm9sbGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2V4cHJlc3NfY29udHJvbGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7OztHQU1HOzs7Ozs7Ozs7OztBQUVILG1DQUFxQztBQUNyQyxtQ0FBbUM7QUFJbkMsSUFBYSxpQkFBaUIsR0FBOUI7SUFJSTtRQUNJLElBQUksQ0FBQyxJQUFJLEdBQUcsT0FBTyxFQUFFLENBQUM7SUFDMUIsQ0FBQztJQUVELE1BQU07UUFDRixNQUFNLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQztJQUNyQixDQUFDO0NBRUosQ0FBQTtBQVpZLGlCQUFpQjtJQUQ3QixvQkFBWSxFQUFFOztHQUNGLGlCQUFpQixDQVk3QjtBQVpZLDhDQUFpQiJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhwcmVzc19jb250cm9sbGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2V4cHJlc3NfY29udHJvbGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7OztHQU1HOzs7Ozs7Ozs7OztBQUVILG1DQUFxQztBQUNyQyxtQ0FBbUM7QUFHbkM7O0dBRUc7QUFFSCxJQUFhLGlCQUFpQixHQUE5QjtJQUlJO1FBQ0ksSUFBSSxDQUFDLElBQUksR0FBRyxPQUFPLEVBQUUsQ0FBQztJQUMxQixDQUFDO0lBRUQsTUFBTTtRQUNGLE1BQU0sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDO0lBQ3JCLENBQUM7Q0FFSixDQUFBO0FBWlksaUJBQWlCO0lBRDdCLG9CQUFZLEVBQUU7O0dBQ0YsaUJBQWlCLENBWTdCO0FBWlksOENBQWlCIn0=

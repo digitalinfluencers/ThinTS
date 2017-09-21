@@ -9,8 +9,8 @@
 import {Reflection} from "../metadata/reflection";
 
 export abstract class InjectorBranch {
-    abstract get<T>(cls: any): T;
-    abstract get(cls: any): any;
+    abstract get<T>(cls: any): T|null;
+    abstract get(cls: any): any|null;
     abstract isDeclared(cls: any): boolean;
 }
 
@@ -54,7 +54,7 @@ export class InjectorBranch_ extends InjectorBranch {
             }
             branch = <InjectorBranch_>branch._parent;
         }
-        this._throwNull(controller);
+        return null;
     }
 
     _initiate(controller: any) {
@@ -75,12 +75,6 @@ export class InjectorBranch_ extends InjectorBranch {
     _throwInvalid(cls: any) {
         throw new Error(
             `Invalid controller ${cls}.`
-        )
-    }
-
-    _throwNull(cls: any) {
-        throw new Error(
-            `Controller ${cls} not declared in any module.`
         )
     }
 

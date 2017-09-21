@@ -28,9 +28,15 @@ import {Reflection} from "./reflection";
  * @stable
  */
 export function checkClassHasDecoratorType(type: string, cls: any) {
+    if (!cls) {
+        return false;
+    }
     const decorators = Reflection.decorators(cls);
-    for (const {name} of decorators) {
-        if (name === type) {
+    for (const d of decorators) {
+        if (!(d instanceof DecoratorMetadata)) {
+            return false;
+        }
+        if (d.is(type)) {
             return true;
         }
     }

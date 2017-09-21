@@ -3,7 +3,8 @@
   "version": "0.0.0-development",
   "description": "A Node.js RestAPI Framework based in Angular2+ flow and Typescript.",
   "author": "Murilo Parente <muriloparentel@gmail.com>",
-  "main": "dist/index.js",
+  "main": "bin/index.js",
+  "typings": "bin/index",
   "repository": {
     "type": "git",
     "url": "https://github.com/murilopl/ThinTS.git"
@@ -14,16 +15,18 @@
   "license": "MIT",
   "homepage": "https://github.com/murilopl/ThinTS",
   "scripts": {
-    "clean:dist": "rimraf -- dist",
+    "clean:prod": "rimraf -- bin",
     "clean:cache": "rimraf -- .cache",
     "tsc": "tsc",
     "tsc:watch": "tsc --watch",
-    "build": "npm run clean:dist && npm run tsc",
-    "test": "jest && npm run clean:cache",
+    "build": "npm run clean:prod && npm run tsc",
+    "build:prod": "npm run test && npm run build",
+    "test": "npm run build && jest && npm run clean:cache",
     "test:watch": "jest --watch && npm run clean:cache",
     "docs": "typedoc  --theme markdown --mode file --out  docs/ src/",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "precommit": "npm run build:prod && git add lib"
   },
   "config": {
     "commitizen": {
@@ -39,18 +42,19 @@
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.28",
     "@types/reflect-metadata": "0.0.5",
+    "@types/supertest": "^2.0.3",
     "jest": "^21.1.0",
     "rimraf": "^2.6.2",
+    "semantic-release": "^8.0.0",
+    "supertest": "^3.0.0",
     "ts-jest": "^21.0.1",
     "typescript": "^2.5.2",
-    "semantic-release": "^8.0.0"
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0"
   },
   "dependencies": {
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.0.0",
     "express": "^4.15.4",
-    "reflect-metadata": "^0.1.10",
-    "semantic-release": "^8.0.0"
+    "reflect-metadata": "^0.1.10"
   },
   "jest": {
     "transform": {

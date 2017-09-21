@@ -8,10 +8,13 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "strictNullChecks": true,
-    "outDir": "./dist",
+    "outDir": "./bin",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
-    "rootDir": "./src",
+    "rootDirs": [
+      "./",
+      "./src"
+    ],
     "inlineSourceMap": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
@@ -31,10 +34,10 @@
     ]
   },
   "include": [
-    "./src/**/*.ts",
+    "./src/**/*.ts"
   ],
   "exclude": [
-    "./dist",
+    "./bin",
     "./node_modules",
     "**/*.d.ts"
   ]

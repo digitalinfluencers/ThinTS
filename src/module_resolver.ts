@@ -21,6 +21,9 @@ export abstract class ModuleResolver {
     abstract getInjectorTree(): InjectorBranch;
     abstract getParent(): ModuleResolver|null;
     abstract getRouter(): Router;
+    abstract getChildren(cls: any): ModuleResolver|null;
+    abstract getChildren<T>(cls: T): T;
+    abstract getModuleInstance(): any;
     static create(module: any, parent?: ModuleResolver): ModuleResolver {
         return new ModuleResolver_(module, parent);
     }
@@ -151,7 +154,7 @@ class ModuleResolver_ extends ModuleResolver {
             return;
         }
 
-        const expressController = this.injectorTree.get<ExpressController>(ExpressController);
+        const expressController = <ExpressController>this.injectorTree.get(ExpressController);
         const expressApp = expressController.getApp();
         expressApp.use(basePath, this.router);
     }
@@ -173,6 +176,15 @@ class ModuleResolver_ extends ModuleResolver {
     getRouter(): any {
         return this.router;
     }
+
+    getChildren(cls: any): any {
+        return this.childrens.find((m: ModuleResolver_) => m.module === cls);
+    }
+
+    getModuleInstance(): any {
+        return this.instance;
+    }
+
 }
 
 
@@ -224,7 +236,11 @@ function _wrapMethodsInRouter(basePath: string, instance: any, decorators: any[]
         if (httpMethods.indexOf(httpMethod) == -1) {
             throw new Error(`Invalid http method at ${instance.constructor.name}.${methodName}`);
         }
-        (<any>router)[httpMethod.toLowerCase()](...callerArgs);
+        if (httpMethod === "PARAM") {
+            router.param(path.toLowerCase(), _wrapRouterHandlerInMethod(instance, methodName));
+        } else {
+            (<any>router)[httpMethod.toLowerCase()](...callerArgs);
+        }
     }
 }
 
