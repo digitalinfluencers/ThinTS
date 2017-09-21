@@ -22,7 +22,7 @@
 
 
 
-*Defined in [metadata/th_model.ts:34](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_model.ts#L34)*
+*Defined in [metadata/th_model.ts:34](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_model.ts#L34)*
 
 
 

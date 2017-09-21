@@ -26,7 +26,7 @@
 
 **●  basePath**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_module.ts:55](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L55)*
+*Defined in [metadata/th_module.ts:55](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L55)*
 
 
 
@@ -53,7 +53,7 @@ ___
 
 **●  controllers**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:88](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L88)*
+*Defined in [metadata/th_module.ts:88](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L88)*
 
 
 
@@ -92,7 +92,7 @@ ___
 
 **●  imports**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:207](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L207)*
+*Defined in [metadata/th_module.ts:207](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L207)*
 
 
 
@@ -141,7 +141,7 @@ ___
 
 **●  middlewares**:  *[[ThMiddlewareImplements](thmiddlewareimplements.md)⎮`RequestHandler`]* 
 
-*Defined in [metadata/th_module.ts:250](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L250)*
+*Defined in [metadata/th_module.ts:250](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L250)*
 
 
 
@@ -187,7 +187,7 @@ ___
 
 **●  models**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:125](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L125)*
+*Defined in [metadata/th_module.ts:125](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L125)*
 
 
 
@@ -230,7 +230,7 @@ ___
 
 **●  routers**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:162](https://github.com/murilopl/ThinTS/blob/1882421/src/metadata/th_module.ts#L162)*
+*Defined in [metadata/th_module.ts:162](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_module.ts#L162)*
 
 
 

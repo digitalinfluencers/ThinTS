@@ -23,10 +23,10 @@
     "build:prod": "npm run test && npm run build && npm run docs",
     "test": "npm run build && jest && npm run clean:cache",
     "test:watch": "jest --watch && npm run clean:cache",
-    "docs": "typedoc  --theme markdown --mode file --out  docs/ src/",
+    "docs": "typedoc --hideGenerator --theme markdown --readme none --mode file --out  docs/ src/",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git-cz",
-    "precommit": "npm run build:prod && git add bin"
+    "precommit": "npm run build:prod && git add ."
   },
   "config": {
     "commitizen": {

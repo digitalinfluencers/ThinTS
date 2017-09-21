@@ -1,11 +1,7 @@
 
 
 
-## ThinTS
-
-[![Build Status](https://travis-ci.com/murilopl/ThinTS.svg?token=SSX9ffPMw97jpEYswtuq&branch=master)](https://travis-ci.com/murilopl/ThinTS)
-
-
+#  thints
 
 ## Index
 
