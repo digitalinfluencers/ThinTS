@@ -1,4 +1,4 @@
-[thints](../README.md) > [ThController](../interfaces/thcontroller.md)
+[@digitalinfluencers/thints](../README.md) > [ThController](../interfaces/thcontroller.md)
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-*Defined in [metadata/th_controller.ts:32](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_controller.ts#L32)*
+*Defined in [metadata/th_controller.ts:32](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_controller.ts#L32)*
 
 
 

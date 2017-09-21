@@ -1,4 +1,4 @@
-[thints](../README.md) > [ExpressController](../classes/expresscontroller.md)
+[@digitalinfluencers/thints](../README.md) > [ExpressController](../classes/expresscontroller.md)
 
 
 
@@ -29,7 +29,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [express_controller.ts:19](https://github.com/murilopl/ThinTS/blob/48f46de/src/express_controller.ts#L19)*
+*Defined in [express_controller.ts:19](https://github.com/murilopl/ThinTS/blob/da16ca4/src/express_controller.ts#L19)*
 
 
 
@@ -51,7 +51,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [express_controller.ts:25](https://github.com/murilopl/ThinTS/blob/48f46de/src/express_controller.ts#L25)*
+*Defined in [express_controller.ts:25](https://github.com/murilopl/ThinTS/blob/da16ca4/src/express_controller.ts#L25)*
 
 
 

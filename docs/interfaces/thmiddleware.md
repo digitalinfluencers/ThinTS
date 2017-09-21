@@ -1,4 +1,4 @@
-[thints](../README.md) > [ThMiddleware](../interfaces/thmiddleware.md)
+[@digitalinfluencers/thints](../README.md) > [ThMiddleware](../interfaces/thmiddleware.md)
 
 
 

@@ -1,4 +1,4 @@
-[thints](../README.md) > [ThRouter](../interfaces/throuter.md)
+[@digitalinfluencers/thints](../README.md) > [ThRouter](../interfaces/throuter.md)
 
 
 
@@ -22,7 +22,7 @@
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router.ts:30](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_router.ts#L30)*
+*Defined in [metadata/th_router.ts:30](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_router.ts#L30)*
 
 
 

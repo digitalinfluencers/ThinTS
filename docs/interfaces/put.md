@@ -1,4 +1,4 @@
-[thints](../README.md) > [PUT](../interfaces/put.md)
+[@digitalinfluencers/thints](../README.md) > [PUT](../interfaces/put.md)
 
 
 
@@ -31,7 +31,7 @@ or @ThRouter('/my') class MyRouter { @PUT() all(req: Request, res: Response) { r
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:126](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_router_methods.ts#L126)*
+*Defined in [metadata/th_router_methods.ts:126](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_router_methods.ts#L126)*
 
 
 

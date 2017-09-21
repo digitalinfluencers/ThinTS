@@ -1,4 +1,4 @@
-[thints](../README.md) > [DELETE](../interfaces/delete.md)
+[@digitalinfluencers/thints](../README.md) > [DELETE](../interfaces/delete.md)
 
 
 
@@ -39,7 +39,7 @@ or
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:206](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_router_methods.ts#L206)*
+*Defined in [metadata/th_router_methods.ts:206](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_router_methods.ts#L206)*
 
 
 

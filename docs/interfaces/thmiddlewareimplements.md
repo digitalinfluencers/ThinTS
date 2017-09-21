@@ -1,4 +1,4 @@
-[thints](../README.md) > [ThMiddlewareImplements](../interfaces/thmiddlewareimplements.md)
+[@digitalinfluencers/thints](../README.md) > [ThMiddlewareImplements](../interfaces/thmiddlewareimplements.md)
 
 
 
@@ -18,7 +18,7 @@ Help implement a ThMiddleware
 
 
 
-*Defined in [metadata/th_middleware.ts:16](https://github.com/murilopl/ThinTS/blob/48f46de/src/metadata/th_middleware.ts#L16)*
+*Defined in [metadata/th_middleware.ts:16](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_middleware.ts#L16)*
 
 
 
