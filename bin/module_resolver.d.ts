@@ -8,8 +8,7 @@
  */
 import { ThModule } from "./metadata";
 import { InjectorBranch } from "./di/injector_tree";
-import { RequestHandler, Router } from "express";
-import { ThMiddlewareImplements } from "./metadata/th_middleware";
+import { Router } from "express";
 /**
  * Responsible to compile and manage all modules.
  */
@@ -30,7 +29,7 @@ export declare class ModuleMetadata {
     _controllers: any[] | null;
     _models: any[] | null;
     _basePath: string | null;
-    _middlewares: [ThMiddlewareImplements | RequestHandler] | null;
+    _middlewares: any[] | null;
     _imports: any[] | null;
     _routers: any[] | null;
     _exports: any[] | null;

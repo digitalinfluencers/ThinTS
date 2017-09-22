@@ -33,7 +33,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L26)*
+*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L26)*
 
 
 
@@ -52,7 +52,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L27)*
+*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L27)*
 
 
 
@@ -86,7 +86,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L23)*
+*Defined in [module_resolver.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L23)*
 
 
 
@@ -109,7 +109,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L28)*
+*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L28)*
 
 
 
@@ -132,7 +132,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:24](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L24)*
+*Defined in [module_resolver.ts:24](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L24)*
 
 
 
@@ -155,7 +155,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L25)*
+*Defined in [module_resolver.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L25)*
 
 
 
@@ -178,7 +178,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/a847931/src/module_resolver.ts#L29)*
+*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L29)*
 
 
 

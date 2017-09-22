@@ -214,7 +214,7 @@ export class ModuleMetadata {
     _controllers: any[]|null;
     _models: any[]|null;
     _basePath: string|null;
-    _middlewares: [ThMiddlewareImplements|RequestHandler]|null;
+    _middlewares: any[]|null;
     _imports: any[]|null;
     _routers: any[]|null;
     _exports: any[]|null;

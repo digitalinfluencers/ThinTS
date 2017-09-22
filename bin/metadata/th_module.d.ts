@@ -235,7 +235,7 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    middlewares?: [ThMiddlewareImplements | RequestHandler];
+    middlewares?: Array<ThMiddlewareImplements | RequestHandler>;
 }
 export declare const ThModule: ThModuleDecorator;
 /**
