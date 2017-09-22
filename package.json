@@ -1,5 +1,5 @@
 {
-  "name": "@digitalinfluencers/thints",
+  "name": "thints",
   "version": "1.0.0",
   "description": "A simple, angular based and typed framework for RestAPIs with node.",
   "author": "Murilo Parente <muriloparentel@gmail.com>",
@@ -7,7 +7,7 @@
   "typings": "bin/index",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/digitalinfluencers/ThinTS.git"
+    "url": "https://github.com/digitalinfluencers/ThinTS.git"
   },
   "engines": {
     "node": ">=7.6.0"
@@ -47,7 +47,7 @@
     "cz-conventional-changelog": "^2.0.0",
     "jest": "^21.1.0",
     "rimraf": "^2.6.2",
-    "semantic-release": "^8.0.0",
+    "semantic-release": "^8.0.3",
     "supertest": "^3.0.0",
     "ts-jest": "^21.0.1",
     "typedoc": "^0.8.0",
@@ -82,19 +82,24 @@
     "cacheDirectory": ".cache"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/digitalinfluencers/ThinTS/issues"
   },
   "bin": {
-    "thints": "express_controller.js"
+    "thints": "bin/index.js"
   },
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "keywords": [
-    "typescript", "thints", "node", "node.js", "framework", "digitalinfluencers"
+    "typescript",
+    "thints",
+    "node",
+    "node.js",
+    "framework",
+    "digitalinfluencers"
   ]
 }

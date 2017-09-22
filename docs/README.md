@@ -1,7 +1,7 @@
 
 
 
-#  @digitalinfluencers/thints
+#  thints
 
 ## Index
 

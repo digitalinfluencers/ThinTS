@@ -1,4 +1,4 @@
-[@digitalinfluencers/thints](../README.md) > [GET](../interfaces/get.md)
+[thints](../README.md) > [GET](../interfaces/get.md)
 
 
 
@@ -37,7 +37,7 @@ or
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:47](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_router_methods.ts#L47)*
+*Defined in [metadata/th_router_methods.ts:47](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/metadata/th_router_methods.ts#L47)*
 
 
 

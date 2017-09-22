@@ -1,4 +1,4 @@
-[@digitalinfluencers/thints](../README.md) > [PATCH](../interfaces/patch.md)
+[thints](../README.md) > [PATCH](../interfaces/patch.md)
 
 
 
@@ -39,7 +39,7 @@ or
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:166](https://github.com/murilopl/ThinTS/blob/da16ca4/src/metadata/th_router_methods.ts#L166)*
+*Defined in [metadata/th_router_methods.ts:166](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/metadata/th_router_methods.ts#L166)*
 
 
 

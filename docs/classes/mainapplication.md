@@ -1,4 +1,4 @@
-[@digitalinfluencers/thints](../README.md) > [MainApplication](../classes/mainapplication.md)
+[thints](../README.md) > [MainApplication](../classes/mainapplication.md)
 
 
 
@@ -29,7 +29,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 
 
-*Defined in [main_application.ts:21](https://github.com/murilopl/ThinTS/blob/da16ca4/src/main_application.ts#L21)*
+*Defined in [main_application.ts:21](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/main_application.ts#L21)*
 
 
 
@@ -59,7 +59,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 
 
-*Defined in [main_application.ts:25](https://github.com/murilopl/ThinTS/blob/da16ca4/src/main_application.ts#L25)*
+*Defined in [main_application.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/main_application.ts#L25)*
 
 
 
