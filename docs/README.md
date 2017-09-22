@@ -26,7 +26,6 @@
 * [ThMiddlewareImplements](interfaces/thmiddlewareimplements.md)
 * [ThModel](interfaces/thmodel.md)
 * [ThModule](interfaces/thmodule.md)
-* [ThModuleWithExports](interfaces/thmodulewithexports.md)
 * [ThRouter](interfaces/throuter.md)
 
 
@@ -48,7 +47,7 @@
 
 
 
-*Defined in [util.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/4b9e250/src/util.ts#L61)*
+*Defined in [util.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/f6fb232/src/util.ts#L61)*
 
 
 
@@ -80,7 +79,7 @@ ___
 
 
 
-*Defined in [util.ts:50](https://github.com/digitalinfluencers/ThinTS/blob/4b9e250/src/util.ts#L50)*
+*Defined in [util.ts:50](https://github.com/digitalinfluencers/ThinTS/blob/f6fb232/src/util.ts#L50)*
 
 
 

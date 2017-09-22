@@ -22,7 +22,7 @@
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router.ts:30](https://github.com/digitalinfluencers/ThinTS/blob/4b9e250/src/metadata/th_router.ts#L30)*
+*Defined in [metadata/th_router.ts:30](https://github.com/digitalinfluencers/ThinTS/blob/f6fb232/src/metadata/th_router.ts#L30)*
 
 
 

@@ -5,9 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file.
  */
-
-import {Reflection} from "../metadata/reflection";
 import {resolveDeps} from "../util";
+import {ModuleResolver} from "../module_resolver";
 
 /**
  * Responsible to manage all dependencies in modules.
@@ -27,12 +26,10 @@ export class InjectorBranch_ extends InjectorBranch {
 
     _controllersCache = new Map<any, any>();
     _controllers: any[];
-    _parent: InjectorBranch|null;
 
-    constructor(_controllers: any[], parent?: InjectorBranch) {
+    constructor(_controllers: any[], private module: ModuleResolver) {
         super();
         this._controllers = _controllers;
-        this._parent = parent || null;
 
         for (const controller of _controllers) {
             this._initiate(controller);
@@ -56,9 +53,14 @@ export class InjectorBranch_ extends InjectorBranch {
                     return branch._initiate(controller);
                 }
             }
-            branch = <InjectorBranch_>branch._parent;
+            branch = <InjectorBranch_>branch.getParentBranch();
         }
         return null;
+    }
+
+    getParentBranch(): InjectorBranch|null {
+        const parent = this.module.getParent();
+        return parent ? parent.getInjectorTree() : null;
     }
 
     push(cls: any) {
@@ -69,6 +71,16 @@ export class InjectorBranch_ extends InjectorBranch {
     pushResolved(cls: any, instance: any) {
         this._controllers.push(cls);
         this._controllersCache.set(cls, instance);
+    }
+
+    remove(cls: any) {
+        if (this._controllersCache.has(cls)) {
+            this._controllersCache.delete(cls);
+        }
+        const index = this._controllers.indexOf(cls);
+        if (index !== -1) {
+            this._controllers.splice(index, 1);
+        }
     }
 
     _initiate(controller: any) {

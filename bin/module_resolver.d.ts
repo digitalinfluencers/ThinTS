@@ -33,5 +33,6 @@ export declare class ModuleMetadata {
     _middlewares: [ThMiddlewareImplements | RequestHandler] | null;
     _imports: any[] | null;
     _routers: any[] | null;
-    constructor({controllers, basePath, middlewares, imports, routers, models}: ThModule);
+    _exports: any[] | null;
+    constructor({controllers, basePath, middlewares, imports, routers, models, exports}: ThModule);
 }

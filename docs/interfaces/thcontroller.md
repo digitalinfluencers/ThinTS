@@ -22,7 +22,7 @@
 
 
 
-*Defined in [metadata/th_controller.ts:32](https://github.com/digitalinfluencers/ThinTS/blob/4b9e250/src/metadata/th_controller.ts#L32)*
+*Defined in [metadata/th_controller.ts:32](https://github.com/digitalinfluencers/ThinTS/blob/f6fb232/src/metadata/th_controller.ts#L32)*
 
 
 

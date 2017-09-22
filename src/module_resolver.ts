@@ -49,16 +49,17 @@ class ModuleResolver_ extends ModuleResolver {
 
     constructor(private module: any, parent?: ModuleResolver) {
         super();
-        const decorators = Reflection.decorators(module);
+        const decorators = Reflection.decorators(this.module);
         if (decorators.length !== 1) {
-            this._throwInvalid('ThModule', module);
+            this._throwInvalid('ThModule', this.module);
         }
         if (stringify(decorators[0]) !== "ThModule") {
-            this._throwInvalid('ThModule', module);
+            this._throwInvalid('ThModule', this.module);
         }
         this.metadata = new ModuleMetadata(decorators[0].metadata);
         this._parent = parent || null;
         this._resolveControllersAndModels();
+        this._resolveExports();
         this._resolveMiddlewares();
         this._resolveImports();
         this._resolveRouters();
@@ -79,9 +80,7 @@ class ModuleResolver_ extends ModuleResolver {
                 this._throwInvalid('ThModel', model);
             }
         }
-
-        const parentInject = this._parent ? this._parent.getInjectorTree() : undefined;
-        this.injectorTree = new InjectorBranch_([...controllers, ...models], parentInject);
+        this.injectorTree = new InjectorBranch_([...controllers, ...models], this);
     }
 
     _resolveImports() {
@@ -90,25 +89,7 @@ class ModuleResolver_ extends ModuleResolver {
             return;
         }
         for(let module of imports) {
-            let exports;
-            if (typeof module.module === "function") {
-                if (!Array.isArray(module.exports)) {
-                    this._throwInvalid('Module.exports, expect array, received', module.exports);
-                }
-                exports = module.exports;
-                module  = module.module;
-            }
-            if (!checkClassHasDecoratorType('ThModule', module)) {
-                this._throwInvalid('ThModule', module);
-            }
-            const moduleResolverInstance = new ModuleResolver_(module, this);
-            this.childrens.push(moduleResolverInstance);
-            if (exports) {
-                for (const exp of exports) {
-                    const expInstance = moduleResolverInstance.injectorTree.get(exp);
-                    (<InjectorBranch_>this.injectorTree).pushResolved(exp, expInstance);
-                }
-            }
+            this.childrens.push(new ModuleResolver_(module, this));
         }
     }
 
@@ -153,6 +134,33 @@ class ModuleResolver_ extends ModuleResolver {
     _resolveInstance() {
         this.instance = resolveDeps(this.module, this.injectorTree);
         (<InjectorBranch_>this.injectorTree).pushResolved(this.module, this.instance);
+    }
+
+    _resolveExports() {
+        const exports = this.metadata._exports;
+        if (!exports) {
+            return;
+        }
+        if (!exports.length) {
+            return;
+        }
+        for (const exp of exports) {
+            if (!(this.injectorTree.isDeclared(exp))) {
+                throw new Error(
+                    `To ${stringify(exp)} can be exported, he need to be declared.`
+                )
+            }
+            const instance = this.injectorTree.get(exp);
+            const injectorTree = <InjectorBranch_>this.injectorTree;
+            const parentBranch = <InjectorBranch_>injectorTree.getParentBranch();
+            if (parentBranch) {
+                parentBranch.pushResolved(exp, instance);
+                /**
+                 * Remove duplicated reference, now reference can be find only in parent injector branch.
+                 */
+                injectorTree.remove(exp);
+            }
+        }
     }
 
     _applyRouter() {
@@ -209,14 +217,16 @@ export class ModuleMetadata {
     _middlewares: [ThMiddlewareImplements|RequestHandler]|null;
     _imports: any[]|null;
     _routers: any[]|null;
+    _exports: any[]|null;
 
-    constructor({controllers, basePath, middlewares, imports, routers, models}: ThModule) {
+    constructor({controllers, basePath, middlewares, imports, routers, models, exports}: ThModule) {
         this._controllers = controllers || null;
         this._models = models || null;
         this._routers = routers || null;
         this._middlewares = middlewares || null;
         this._basePath = basePath || null;
         this._imports = imports || null;
+        this._exports = exports || null;
     }
 }
 

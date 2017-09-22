@@ -7,27 +7,21 @@
  */
 
 import {ThModule, ThController, MainApplication} from "../src/";
-import {ThModuleWithExports} from "../src/metadata/th_module";
 
 
 @ThController() class ThControllerOne { n: number; }
 @ThController() class ThControllerTwo {}
 @ThController() class ThControllerThree { a: number; }
+@ThController() class ThControllerFour {}
 
-@ThModule({ controllers: [ ThControllerThree ] })
+@ThModule({
+    controllers: [ ThControllerThree ],
+    exports: [ ThControllerThree ]
+})
 class ThModuleChildrenWithExports {
 
     constructor(ctrlThree: ThControllerThree) {
         ctrlThree.a = 3;
-    }
-
-    static exports(): ThModuleWithExports {
-        return {
-            module: ThModuleChildrenWithExports,
-            exports: [
-                ThControllerThree
-            ]
-        }
     }
 }
 
@@ -39,7 +33,7 @@ class ThModuleChildren {
 @ThModule({
     imports: [
         ThModuleChildren,
-        ThModuleChildrenWithExports.exports()
+        ThModuleChildrenWithExports
     ],
     controllers: [ ThControllerOne ]
 })
