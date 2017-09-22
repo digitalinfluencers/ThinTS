@@ -1,6 +1,6 @@
 {
   "name": "thints",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A simple, angular based and typed framework for RestAPIs with node.",
   "author": "Murilo Parente <muriloparentel@gmail.com>",
   "main": "bin/index.js",

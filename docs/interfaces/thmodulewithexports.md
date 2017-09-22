@@ -15,7 +15,7 @@ Now, you can export to parent module, instances of children module.
 
 **●  exports**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:274](https://github.com/digitalinfluencers/ThinTS/blob/f3585a7/src/metadata/th_module.ts#L274)*
+*Defined in [metadata/th_module.ts:274](https://github.com/digitalinfluencers/ThinTS/blob/74882ef/src/metadata/th_module.ts#L274)*
 
 
 
@@ -32,7 +32,7 @@ ___
 
 **●  module**:  *`any`* 
 
-*Defined in [metadata/th_module.ts:270](https://github.com/digitalinfluencers/ThinTS/blob/f3585a7/src/metadata/th_module.ts#L270)*
+*Defined in [metadata/th_module.ts:270](https://github.com/digitalinfluencers/ThinTS/blob/74882ef/src/metadata/th_module.ts#L270)*
 
 
 
