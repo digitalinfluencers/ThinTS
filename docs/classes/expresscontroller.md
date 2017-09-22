@@ -29,7 +29,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [express_controller.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/express_controller.ts#L19)*
+*Defined in [express_controller.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/f702317/src/express_controller.ts#L19)*
 
 
 
@@ -51,7 +51,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [express_controller.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/7e47de1/src/express_controller.ts#L25)*
+*Defined in [express_controller.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/f702317/src/express_controller.ts#L25)*
 
 
 
