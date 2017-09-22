@@ -7,6 +7,9 @@
  */
 
 
+import {InjectorBranch} from "./di/injector_tree";
+import {Reflection} from "./metadata/reflection";
+
 /**
  * @internal
  * @hidden
@@ -41,4 +44,22 @@ export function isClass(func: any): boolean {
         return false;
     }
     return /^class\s/.test(Function.prototype.toString.call(func));
+}
+
+
+export function resolveDeps(cls: any, injectorTree: InjectorBranch) {
+    const deps = Reflection.parameters(cls);
+    if (deps.length !== cls.length) {
+        throw new Error(
+            `Only ThComponents like ThController, ThModule, etc... can be resolved. ${stringify(cls)} is not valid.`
+        )
+    }
+    const resolvedDeps = deps.map((d: any) => injectorTree.get(d) || _throwNull(cls, d));
+    return new cls(...resolvedDeps);
+}
+
+function _throwNull(target: any, dep: any) {
+    throw new Error(
+        `Failed to resolve all parameters for ${stringify(target)}, are ${stringify(dep)} declared in any ThModule?`
+    )
 }

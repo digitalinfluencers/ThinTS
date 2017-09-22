@@ -26,8 +26,81 @@
 * [ThMiddlewareImplements](interfaces/thmiddlewareimplements.md)
 * [ThModel](interfaces/thmodel.md)
 * [ThModule](interfaces/thmodule.md)
+* [ThModuleWithExports](interfaces/thmodulewithexports.md)
 * [ThRouter](interfaces/throuter.md)
+
+
+### Functions
+
+* [_throwNull](#_thrownull)
+* [resolveDeps](#resolvedeps)
 
 
 
 ---
+# Functions
+<a id="_thrownull"></a>
+
+###  _throwNull
+
+► **_throwNull**(target: *`any`*, dep: *`any`*): `void`
+
+
+
+
+*Defined in [util.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/74882ef/src/util.ts#L61)*
+
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| target | `any`   |  - |
+| dep | `any`   |  - |
+
+
+
+
+
+**Returns:** `void`
+
+
+
+
+
+___
+
+<a id="resolvedeps"></a>
+
+###  resolveDeps
+
+► **resolveDeps**(cls: *`any`*, injectorTree: *[InjectorBranch](classes/injectorbranch.md)*): `any`
+
+
+
+
+*Defined in [util.ts:50](https://github.com/digitalinfluencers/ThinTS/blob/74882ef/src/util.ts#L50)*
+
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| cls | `any`   |  - |
+| injectorTree | [InjectorBranch](classes/injectorbranch.md)   |  - |
+
+
+
+
+
+**Returns:** `any`
+
+
+
+
+
+___
+
+

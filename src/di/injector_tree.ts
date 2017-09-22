@@ -7,6 +7,7 @@
  */
 
 import {Reflection} from "../metadata/reflection";
+import {resolveDeps} from "../util";
 
 /**
  * Responsible to manage all dependencies in modules.
@@ -60,17 +61,21 @@ export class InjectorBranch_ extends InjectorBranch {
         return null;
     }
 
+    push(cls: any) {
+        this._controllers.push(cls);
+        this.get(cls);
+    }
+
+    pushResolved(cls: any, instance: any) {
+        this._controllers.push(cls);
+        this._controllersCache.set(cls, instance);
+    }
+
     _initiate(controller: any) {
         if (!(controller && typeof controller === "function")) {
             this._throwInvalid(controller);
         }
-        const deps = Reflection.parameters(controller);
-        if (deps.length != controller.length) {
-            this._throwInvalid(controller);
-        }
-
-        const resolvedDeps = deps.map((d: any) => this.get(d));
-        const instance = new controller(...resolvedDeps);
+        const instance = resolveDeps(controller, this);
         this._controllersCache.set(controller, instance);
         return instance;
     }

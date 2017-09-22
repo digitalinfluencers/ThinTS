@@ -7,10 +7,29 @@
  */
 
 import {ThModule, ThController, MainApplication} from "../src/";
+import {ThModuleWithExports} from "../src/metadata/th_module";
 
 
 @ThController() class ThControllerOne { n: number; }
 @ThController() class ThControllerTwo {}
+@ThController() class ThControllerThree { a: number; }
+
+@ThModule({ controllers: [ ThControllerThree ] })
+class ThModuleChildrenWithExports {
+
+    constructor(ctrlThree: ThControllerThree) {
+        ctrlThree.a = 3;
+    }
+
+    static exports(): ThModuleWithExports {
+        return {
+            module: ThModuleChildrenWithExports,
+            exports: [
+                ThControllerThree
+            ]
+        }
+    }
+}
 
 @ThModule({ controllers: [ ThControllerTwo ] })
 class ThModuleChildren {
@@ -18,11 +37,14 @@ class ThModuleChildren {
 }
 
 @ThModule({
-    imports: [ ThModuleChildren ],
+    imports: [
+        ThModuleChildren,
+        ThModuleChildrenWithExports.exports()
+    ],
     controllers: [ ThControllerOne ]
 })
 class ThModuleParent {
-    constructor(ctrlOne: ThControllerOne) {
+    constructor(ctrlOne: ThControllerOne, public ctrlThree: ThControllerThree) {
         ctrlOne.n = 1;
     }
 }
@@ -33,14 +55,14 @@ describe("ThModule", () => {
     const mainModuleResolver = MainApplication.bootstrap(ThModuleParent);
     const thModuleParentResolver = mainModuleResolver.getChildren(ThModuleParent);
 
-    it("should be imported ThModuleChildren", () => {
+    it("should be imported all childrens", () => {
         const children = thModuleParentResolver.getChildren(ThModuleChildren);
         expect(children).not.toBeNull();
         expect(children).not.toBeUndefined();
         expect(children.getModuleInstance()).toBeInstanceOf(ThModuleChildren);
     });
 
-    it("should be inherited the dependencies of ThModuleParent", () => {
+    it("should be inherited the dependencies of parent module", () => {
         const childrenModuleResolver = thModuleParentResolver.getChildren(ThModuleChildren);
         const childrenModuleInstance = <ThModuleChildren>childrenModuleResolver.getModuleInstance();
 
@@ -48,5 +70,11 @@ describe("ThModule", () => {
         expect(childrenModuleInstance.ctrlOne.n).toBe(1);
         expect(childrenModuleInstance.ctrlTwo).toBeInstanceOf(ThControllerTwo);
     });
+
+    it("should be inherited all the exports of child module", () => {
+        const parentModuleInstance = <ThModuleParent>thModuleParentResolver.getModuleInstance();
+        expect(parentModuleInstance.ctrlThree).toBeInstanceOf(ThControllerThree);
+        expect(parentModuleInstance.ctrlThree.a).toBe(3);
+    })
 
 });

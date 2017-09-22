@@ -17,6 +17,8 @@ export declare class InjectorBranch_ extends InjectorBranch {
     constructor(_controllers: any[], parent?: InjectorBranch);
     isDeclared(controller: any): boolean;
     get<T = any>(controller: any): any;
+    push(cls: any): void;
+    pushResolved(cls: any, instance: any): void;
     _initiate(controller: any): any;
     _throwInvalid(cls: any): void;
 }

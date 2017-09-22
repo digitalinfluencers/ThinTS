@@ -5,6 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file.
  */
+import { InjectorBranch } from "./di/injector_tree";
 /**
  * @internal
  * @hidden
@@ -19,3 +20,4 @@ export declare function stringify(d: any): string;
  * @returns {boolean}
  */
 export declare function isClass(func: any): boolean;
+export declare function resolveDeps(cls: any, injectorTree: InjectorBranch): any;

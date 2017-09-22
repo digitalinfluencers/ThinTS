@@ -204,7 +204,7 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    imports?: any[],
+    imports?: [ThModuleWithExports|any],
 
     /**
      * Import middlewares be used in this routers and all childrens module routers.
@@ -260,3 +260,16 @@ export const ThModule = <ThModuleDecorator>createClassDecorator('ThModule');
  */
 export interface ThModuleDecorator { (obj?: ThModule): ClassDecorator }
 
+
+
+
+/**
+ * Now, you can export to parent module, instances of children module.
+ */
+export interface ThModuleWithExports {
+    module: any
+    /**
+     * Only @ThModels and @ThControllers can be exporteds.
+     */
+    exports: any[]
+}

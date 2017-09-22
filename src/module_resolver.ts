@@ -8,7 +8,7 @@
 
 import {checkClassHasDecoratorType, ThModule} from "./metadata";
 import {Reflection} from "./metadata/reflection";
-import {stringify} from "./util";
+import {resolveDeps, stringify} from "./util";
 import {InjectorBranch, InjectorBranch_} from "./di/injector_tree";
 import * as express from "express";
 import {ExpressController} from "./express_controller";
@@ -89,11 +89,26 @@ class ModuleResolver_ extends ModuleResolver {
         if (!imports) {
             return;
         }
-        for(const i of imports) {
-            if (!checkClassHasDecoratorType('ThModule', i)) {
-                this._throwInvalid('ThModule', i);
+        for(let module of imports) {
+            let exports;
+            if (typeof module.module === "function") {
+                if (!Array.isArray(module.exports)) {
+                    this._throwInvalid('Module.exports, expect array, received', module.exports);
+                }
+                exports = module.exports;
+                module  = module.module;
             }
-            this.childrens.push(new ModuleResolver_(i, this));
+            if (!checkClassHasDecoratorType('ThModule', module)) {
+                this._throwInvalid('ThModule', module);
+            }
+            const moduleResolverInstance = new ModuleResolver_(module, this);
+            this.childrens.push(moduleResolverInstance);
+            if (exports) {
+                for (const exp of exports) {
+                    const expInstance = moduleResolverInstance.injectorTree.get(exp);
+                    (<InjectorBranch_>this.injectorTree).pushResolved(exp, expInstance);
+                }
+            }
         }
     }
 
@@ -110,9 +125,7 @@ class ModuleResolver_ extends ModuleResolver {
             if (!checkClassHasDecoratorType('ThMiddleware', md)) {
                 this._throwInvalid('ThMiddleware', md);
             }
-            const deps = Reflection.parameters(md);
-            const resolvedDeps = deps.map((d: any) => this.injectorTree.get(d));
-            const instance: ThMiddlewareImplements = new md(...resolvedDeps);
+            const instance = <ThMiddlewareImplements>resolveDeps(md, this.injectorTree);
             if (typeof instance.handler !== "function") {
                 this._throwInvalid('ThMiddlewareImplements', md);
             }
@@ -127,9 +140,7 @@ class ModuleResolver_ extends ModuleResolver {
             if (!checkClassHasDecoratorType('ThRouter', router)) {
                 this._throwInvalid("ThRouter", router);
             }
-            const deps = Reflection.parameters(router);
-            const resolvedDeps = deps.map((d: any) => this.injectorTree.get(d));
-            const instance = new router(...resolvedDeps);
+            const instance = resolveDeps(router, this.injectorTree);
             const basePath = Reflection.decorators(router)[0].metadata || ('/'+router.name);
             const prototype = Object.getPrototypeOf(instance);
             const decorators = Reflection.decorators(prototype);
@@ -140,11 +151,8 @@ class ModuleResolver_ extends ModuleResolver {
     }
 
     _resolveInstance() {
-        const deps = Reflection.parameters(this.module);
-        const resolvedDeps = deps.map((d: any) => this.injectorTree.get(d));
-        this.instance = new this.module(...resolvedDeps);
-        (<InjectorBranch_>this.injectorTree)._controllers.push(this.module);
-        (<InjectorBranch_>this.injectorTree)._controllersCache.set(this.module, this.instance);
+        this.instance = resolveDeps(this.module, this.injectorTree);
+        (<InjectorBranch_>this.injectorTree).pushResolved(this.module, this.instance);
     }
 
     _applyRouter() {
