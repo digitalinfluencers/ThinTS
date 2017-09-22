@@ -47,7 +47,7 @@
 
 
 
-*Defined in [util.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/eb362f6/src/util.ts#L61)*
+*Defined in [util.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/1d9b00b/src/util.ts#L61)*
 
 
 
@@ -79,7 +79,7 @@ ___
 
 
 
-*Defined in [util.ts:50](https://github.com/digitalinfluencers/ThinTS/blob/eb362f6/src/util.ts#L50)*
+*Defined in [util.ts:50](https://github.com/digitalinfluencers/ThinTS/blob/1d9b00b/src/util.ts#L50)*
 
 
 

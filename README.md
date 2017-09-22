@@ -4,10 +4,16 @@
 
 A simple, angular based and typed framework for RestAPIs with [node](http://nodejs.org).
 
+# Installation
+```bash
+$ npm install thints --save
+```
 
 # QuickStart
 Quick example.
 ```TypeScript
+import {MainApplication, ThModule, ThController, ThRouter, GET} from "thints";
+
 @ThController()
 class ExampleController {
     private name = 'ThinTS';
@@ -20,8 +26,7 @@ class ExampleController {
 class ExampleRouter {
     constructor(private exampleCtrl: ExampleController) {}
     
-    @GET('/')
-    myname(req: Request, res: Response) {
+    @GET('/') myname(req: Request, res: Response) {
     	const myname = this.exampleCtrl.getMyName();
     	res.json({myname});
     }
@@ -29,12 +34,8 @@ class ExampleRouter {
 
 @ThModule({
     basePath: '/api',
-    controllers: [
-        ExampleController
-    ],
-    routers: [
-        ExampleRouter
-    ]
+    controllers: [ ExampleController ],
+    routers: [ ExampleRouter ]
 })
 class MyApiModule {}
 
@@ -129,6 +130,10 @@ Module is responsible to create scopes and declare components.
 ###### [MORE][docs-param]
 
 
+# License
+[MIT][license-url]
+
+[license-url]: https://github.com/digitalinfluencers/thints/blob/master/LICENSE
 [npm-image]: https://img.shields.io/npm/v/thints.svg
 [npm-url]: https://www.npmjs.com/package/digitalinfluencers/thints
 [travis-image]: https://img.shields.io/travis/digitalinfluencers/ThinTS.svg

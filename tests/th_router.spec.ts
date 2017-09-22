@@ -21,32 +21,27 @@ class SumRouter {
 
     constructor(public ctrlOne: SumController) {}
 
-    @GET('/')
-    getRoot(req: Request, res: Response) {
+    @GET('/') getRoot(req: Request, res: Response) {
         res.json({result: this.ctrlOne.sum(1, 1)})
     }
 
-    @PARAM('param_a')
-    paramA(req: Request, res: Response, next: NextFunction, value: any, name: string) {
+    @PARAM('param_a') paramA(req: Request, res: Response, next: NextFunction, value: any, name: string) {
         (<any>req).A = Number(value);
         next();
     }
 
-    @PARAM('param_b')
-    paramB(req: Request, res: Response, next: NextFunction, value: any, name: string) {
+    @PARAM('param_b') paramB(req: Request, res: Response, next: NextFunction, value: any, name: string) {
         (<any>req).B = Number(value);
         next();
     }
 
-    @GET('/:param_a/:param_b')
-    getParams(req: Request, res: Response) {
+    @GET('/:param_a/:param_b') getParams(req: Request, res: Response) {
         const pA = (<any>req).A;
         const pB = (<any>req).B;
         res.json({result: this.ctrlOne.sum(pA, pB)})
     }
 
-    @POST('/post')
-    create(req: Request, res: Response) {
+    @POST('/post') create(req: Request, res: Response) {
         res.json({result: true});
     }
 }
@@ -59,8 +54,7 @@ class MultiplayRouter {
 
     constructor(private multiplyCtrl: MultiplyController, private sumCtrl: SumController) {}
 
-    @GET('/')
-    getRoot(req: Request, res: Response) {
+    @GET('/') getRoot(req: Request, res: Response) {
         const a = this.sumCtrl.sum(2, 2);
         const b = this.sumCtrl.sum(5, 5);
         res.json({result: this.multiplyCtrl.multiply(a, b)})
@@ -108,8 +102,11 @@ describe("ThRouter", () => {
     });
 
     it("should be create /math/sum/post with POST http method.", async () => {
-        const {result} = (await supertest(expressApp).get('/math/sum/post')).body;
-        expect(result).not.toBeTruthy();
+        const GET  = supertest(expressApp).get('/math/sum/post');
+        const POST = supertest(expressApp).post('/math/sum/post');
+        const [get, post] = await Promise.all([GET, POST]);
+        expect(get.body.result).toBeUndefined();
+        expect(post.body.result).toBeTruthy();
     });
 
 });
