@@ -86,7 +86,7 @@ export interface POST_Decorator{ (path?: string): MethodDecorator }
  */
 export interface POST { path?: string }
 
-export const POST = <POST_Decorator>createMethodDecorator('GET');
+export const POST = <POST_Decorator>createMethodDecorator('POST');
 
 /**
  * @internal
@@ -125,7 +125,7 @@ export interface PUT_Decorator{ (path?: string): MethodDecorator }
  */
 export interface PUT { path?: string }
 
-export const PUT = <PUT_Decorator>createMethodDecorator('GET');
+export const PUT = <PUT_Decorator>createMethodDecorator('PUT');
 
 /**
  * @internal
@@ -165,7 +165,7 @@ export interface PATCH_Decorator{ (path?: string): MethodDecorator }
  */
 export interface PATCH { path?: string }
 
-export const PATCH = <PATCH_Decorator>createMethodDecorator('GET');
+export const PATCH = <PATCH_Decorator>createMethodDecorator('PATCH');
 
 /**
  * @internal
@@ -205,7 +205,7 @@ export interface DELETE_Decorator{ (path?: string): MethodDecorator }
  */
 export interface DELETE { path?: string }
 
-export const DELETE = <DELETE_Decorator>createMethodDecorator('GET');
+export const DELETE = <DELETE_Decorator>createMethodDecorator('DELETE');
 
 /**
  * @internal

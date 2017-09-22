@@ -9,6 +9,7 @@
 import {MainApplication, ThModule, ThRouter, ThController, ExpressController, GET, PARAM} from "../src";
 import {Request, Response, NextFunction} from "express";
 import * as supertest from "supertest";
+import {POST} from "../src/metadata/th_router_methods";
 
 
 
@@ -42,6 +43,11 @@ class SumRouter {
         const pA = (<any>req).A;
         const pB = (<any>req).B;
         res.json({result: this.ctrlOne.sum(pA, pB)})
+    }
+
+    @POST('/post')
+    create(req: Request, res: Response) {
+        res.json({result: true});
     }
 }
 
@@ -99,6 +105,11 @@ describe("ThRouter", () => {
         const {result} = (await supertest(expressApp).get('/math/multiply')).body;
         expect(result).not.toBeUndefined();
         expect(result).toBe(40);
+    });
+
+    it("should be create /math/sum/post with POST http method.", async () => {
+        const {result} = (await supertest(expressApp).get('/math/sum/post')).body;
+        expect(result).not.toBeTruthy();
     });
 
 });
