@@ -135,7 +135,7 @@ Module is responsible to create scopes and declare components.
 
 [license-url]: https://github.com/digitalinfluencers/thints/blob/master/LICENSE
 [npm-image]: https://img.shields.io/npm/v/thints.svg
-[npm-url]: https://www.npmjs.com/package/digitalinfluencers/thints
+[npm-url]: https://www.npmjs.com/package/thints
 [travis-image]: https://img.shields.io/travis/digitalinfluencers/ThinTS.svg
 [travis-url]: https://travis-ci.org/digitalinfluencers/ThinTS
 
