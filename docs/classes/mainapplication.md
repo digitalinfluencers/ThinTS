@@ -29,7 +29,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 
 
-*Defined in [main_application.ts:21](https://github.com/digitalinfluencers/ThinTS/blob/5ec022b/src/main_application.ts#L21)*
+*Defined in [main_application.ts:21](https://github.com/digitalinfluencers/ThinTS/blob/15301d5/src/main_application.ts#L21)*
 
 
 
@@ -59,7 +59,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 
 
-*Defined in [main_application.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/5ec022b/src/main_application.ts#L25)*
+*Defined in [main_application.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/15301d5/src/main_application.ts#L25)*
 
 
 

@@ -59,8 +59,8 @@ class ModuleResolver_ extends ModuleResolver {
         this.metadata = new ModuleMetadata(decorators[0].metadata);
         this._parent = parent || null;
         this._resolveControllersAndModels();
-        this._resolveImports();
         this._resolveMiddlewares();
+        this._resolveImports();
         this._resolveRouters();
         this._applyRouter();
         this._resolveInstance();
