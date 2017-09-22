@@ -11,8 +11,5 @@ import "reflect-metadata";
  * @description
  * Entry point from which you should import all public core APIs.
  */
-export { ThRouter, ThModule, ThController, ThModel, GET, POST, PUT, PATCH, DELETE, PARAM } from "./metadata";
-export { MainApplication } from "./main_application";
-export { ExpressController } from "./express_controller";
-export { InjectorBranch } from "./di/injector_tree";
-export { ModuleResolver } from "./module_resolver";
+export * from "./core";
+export * from "./http";

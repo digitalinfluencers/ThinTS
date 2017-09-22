@@ -6,7 +6,6 @@
  * found in the LICENSE file.
  */
 
-
 /**
  * @internal
  * @hidden
