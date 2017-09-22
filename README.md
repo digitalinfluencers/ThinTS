@@ -130,9 +130,9 @@ Module is responsible to create scopes and declare components.
 
 
 [npm-image]: https://img.shields.io/npm/v/thints.svg
-[npm-url]: https://www.npmjs.com/package/thints
-[travis-image]: https://img.shields.io/travis/murilopl/ThinTS.svg
-[travis-url]: https://travis-ci.com/murilopl/ThinTS
+[npm-url]: https://www.npmjs.com/package/digitalinfluencers/thints
+[travis-image]: https://img.shields.io/travis/digitalinfluencers/ThinTS.svg
+[travis-url]: https://travis-ci.org/digitalinfluencers/ThinTS
 
 [docs-mainapp]: docs/classes/mainapplication.md
 [docs-thmodule]: docs/interfaces/thmodule.md
