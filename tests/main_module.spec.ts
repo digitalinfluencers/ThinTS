@@ -7,38 +7,50 @@
  */
 
 import {ThModule, ThController, ModuleResolver, MainApplication, ExpressController} from "../src/";
+import {bootstrap} from "../src/main_application";
 
 
 @ThController()
 class NotDeclaredController {}
 
 @ThController()
-class DeclaredController {}
+class DeclaredController {
+    a = 0;
+}
 
-@ThModule({ controllers: [ DeclaredController ] })
+@ThModule({ controllers: [ DeclaredController ], exports: [ DeclaredController ] })
 class ThModuleSpec {
+    constructor(public declaredController: DeclaredController) {
+        declaredController.a = 10;
+    }
+}
+
+@ThModule({
+    imports: [
+        ThModuleSpec
+    ]
+})
+class ThModuleSpecTwo {
     constructor(public declaredController: DeclaredController) {}
 }
 
 
 describe("MainApplication", () => {
 
-    const mainAppModuleResolver = MainApplication.bootstrap(ThModuleSpec);
-    const injectorTree          = mainAppModuleResolver.getInjectorTree();
-    const expressController     = injectorTree.get<ExpressController>(ExpressController);
+    const thModuleResolver = bootstrap(ThModuleSpec, {
+        http: { autostart: false }
+    });
+
+    const thModuleResolverTwo = bootstrap(ThModuleSpecTwo, {
+        http: { autostart: false }
+    });
+
+    const mainAppModuleResolver = MainApplication.moduleResolver;
 
     it("should be have a ThModuleSpec ModuleResolver instance", () => {
         const instance = mainAppModuleResolver.getChildren(ThModuleSpec);
         expect(instance).not.toBeUndefined();
         expect(instance).not.toBeNull();
-    });
-
-    it("should be have a express controller", () => {
-        expect(expressController).toBeInstanceOf(ExpressController);
-
-        const expressApp = expressController.getApp();
-        expect(expressApp).not.toBeNull();
-        expect(expressApp).not.toBeUndefined();
     });
 
     it("should be not have a NotDeclaredController", () => {
@@ -60,6 +72,26 @@ describe("MainApplication", () => {
         const thModuleSpecResolver = mainAppModuleResolver.getChildren(ThModuleSpec);
         const thModuleSpec: ThModuleSpec = thModuleSpecResolver.getModuleInstance();
         expect(thModuleSpec.declaredController).toBeInstanceOf(DeclaredController);
+    });
+
+    it("should be have a ThModuleSpecTwo ModuleResolver instance", () => {
+        const instance = mainAppModuleResolver.getChildren(ThModuleSpecTwo);
+        expect(instance).not.toBeUndefined();
+        expect(instance).not.toBeNull();
+    });
+
+    it("should be inherited a DeclaredController in ThModuleSpecTwo with ThModuleSpec exports", () => {
+        const instance = mainAppModuleResolver.getChildren(ThModuleSpecTwo);
+        expect(instance.getInjectorTree()
+            .get(DeclaredController))
+            .toBeInstanceOf(DeclaredController);
+    });
+
+    it("should be injected a DeclaredController in ThModuleSpecTwo", () => {
+        const thModuleSpecTwoResolver = mainAppModuleResolver.getChildren(ThModuleSpecTwo);
+        const thModuleSpecTwo = <ThModuleSpecTwo>thModuleSpecTwoResolver.getModuleInstance();
+        expect(thModuleSpecTwo.declaredController).toBeInstanceOf(DeclaredController);
+        expect(thModuleSpecTwo.declaredController.a).toBe(10);
     });
 
 });

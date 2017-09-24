@@ -6,7 +6,7 @@
  * found in the LICENSE file.
  */
 export {ThRouter, ThModule, ThController, ThModel} from "./metadata";
-export {MainApplication} from "./main_application";
-export {ExpressController} from "./express_controller";
+export {MainApplication, bootstrap, MainApplicationConfig} from "./main_application";
+export {ExpressController, LogController} from "./controllers";
 export {InjectorBranch} from "./di/injector_tree";
 export {ModuleResolver} from "./module_resolver";

@@ -18,7 +18,7 @@ Help implement a ThMiddleware
 
 
 
-*Defined in [metadata/th_middleware.ts:16](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/metadata/th_middleware.ts#L16)*
+*Defined in [metadata/th_middleware.ts:16](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_middleware.ts#L16)*
 
 
 

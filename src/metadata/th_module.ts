@@ -9,6 +9,7 @@
 import {createClassDecorator} from "./util";
 import {ThMiddlewareImplements} from "./th_middleware";
 import {RequestHandler} from "express";
+import {InjectorToken} from "../di/injector_token";
 
 
 /**
@@ -85,7 +86,7 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    controllers?: any[],
+    controllers?: Array<any|{token: InjectorToken, value: any}>,
 
     /**
      * Import all models.

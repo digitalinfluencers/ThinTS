@@ -19,19 +19,19 @@ export declare abstract class ModuleResolver {
     abstract getChildren(cls: any): ModuleResolver | null;
     abstract getChildren<T>(cls: T): T;
     abstract getModuleInstance(): any;
-    static create(module: any, parent?: ModuleResolver): ModuleResolver;
+    static create(module: any, parent?: ModuleResolver, extraControllers?: any[]): ModuleResolver;
 }
 /**
  * @internal
  * @hidden
  */
 export declare class ModuleMetadata {
-    _controllers: any[] | null;
-    _models: any[] | null;
+    _controllers: any[];
+    _models: any[];
     _basePath: string | null;
     _middlewares: any[] | null;
     _imports: any[] | null;
     _routers: any[] | null;
-    _exports: any[] | null;
+    _exports: any[];
     constructor({controllers, basePath, middlewares, imports, routers, models, exports}: ThModule);
 }

@@ -21,3 +21,18 @@ export declare function stringify(d: any): string;
  */
 export declare function isClass(func: any): boolean;
 export declare function resolveDeps(cls: any, injectorTree: InjectorBranch): any;
+/**
+ * Use to get deep path in object
+ * @example
+ * <pre><code>
+ *     const obj = { path1: { path2: { value: 'last_path' } } };
+ *     objectPath(obj, 'path1.path2.value'); // last_path
+ *     objectPath(obj, 'path1.path2.notexist'); // undefined
+ *     objectPath(obj, 'path1.path2.notexist', true); // true
+ * </pre></code>
+ * @param obj
+ * @param {string} fullPath
+ * @param notFoundValue
+ * @returns {T}
+ */
+export declare function objectPath<T = any>(obj: any, fullPath: string, notFoundValue?: T): T | undefined;

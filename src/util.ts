@@ -9,6 +9,7 @@
 
 import {InjectorBranch} from "./di/injector_tree";
 import {Reflection} from "./metadata/reflection";
+import {isObject, isUndefined} from "util";
 
 /**
  * @internal
@@ -25,6 +26,9 @@ export function stringify(d: any): string {
     }
     if (d.name) {
         return d.name;
+    }
+    if (isObject(d)) {
+        return JSON.stringify(d);
     }
     if (d.toString) {
         return d.toString();
@@ -60,6 +64,37 @@ export function resolveDeps(cls: any, injectorTree: InjectorBranch) {
 
 function _throwNull(target: any, dep: any) {
     throw new Error(
-        `Failed to resolve all parameters for ${stringify(target)}, are ${stringify(dep)} declared in any ThModule?`
+        `Failed to resolve all parameters for ${stringify(target)}, are ${stringify(dep)} declared in ThModule?`
     )
+}
+
+
+/**
+ * Use to get deep path in object
+ * @example
+ * <pre><code>
+ *     const obj = { path1: { path2: { value: 'last_path' } } };
+ *     objectPath(obj, 'path1.path2.value'); // last_path
+ *     objectPath(obj, 'path1.path2.notexist'); // undefined
+ *     objectPath(obj, 'path1.path2.notexist', true); // true
+ * </pre></code>
+ * @param obj
+ * @param {string} fullPath
+ * @param notFoundValue
+ * @returns {T}
+ */
+export function objectPath<T = any>(obj: any, fullPath: string, notFoundValue?: T): T|undefined {
+    if (!isObject(obj)) {
+        return notFoundValue;
+    }
+    const paths = fullPath.split('.');
+    let value = obj[paths[0]];
+    let index = 1;
+    while(isObject(value) && index < paths.length) {
+        value = value[paths[index++]];
+    }
+    if (index === paths.length) {
+        return value;
+    }
+    return notFoundValue;
 }

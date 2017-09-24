@@ -11,10 +11,13 @@ import {Reflection} from "./metadata/reflection";
 import {resolveDeps, stringify} from "./util";
 import {InjectorBranch, InjectorBranch_} from "./di/injector_tree";
 import * as express from "express";
-import {ExpressController} from "./express_controller";
+import {ExpressController} from "./controllers/express_controller";
 import {RequestHandler, Router} from "express";
 import {isClass} from "./util";
 import {ThMiddlewareImplements} from "./metadata/th_middleware";
+import {MAIN_CHILD_MODULES, MainApplication} from "./main_application";
+import {InjectorToken} from "./di/injector_token";
+import {isUndefined} from "util";
 
 /**
  * Responsible to compile and manage all modules.
@@ -26,8 +29,8 @@ export abstract class ModuleResolver {
     abstract getChildren(cls: any): ModuleResolver|null;
     abstract getChildren<T>(cls: T): T;
     abstract getModuleInstance(): any;
-    static create(module: any, parent?: ModuleResolver): ModuleResolver {
-        return new ModuleResolver_(module, parent);
+    static create(module: any, parent?: ModuleResolver, extraControllers?: any[]): ModuleResolver {
+        return new ModuleResolver_(module, parent, extraControllers);
     }
 }
 
@@ -39,15 +42,15 @@ export abstract class ModuleResolver {
 class ModuleResolver_ extends ModuleResolver {
 
     childrens: ModuleResolver[] = [];
-    injectorTree: InjectorBranch;
+    injectorTree: InjectorBranch_;
     metadata: ModuleMetadata;
-    _parent: ModuleResolver|null;
+    _parent: ModuleResolver_|null;
     instance: any;
     routersCache: any[] = [];
     router: any = express.Router();
     middlewaresCache: any[] = [];
 
-    constructor(private module: any, parent?: ModuleResolver) {
+    constructor(private module: any, parent?: ModuleResolver, extraControllers?: any[]) {
         super();
         const decorators = Reflection.decorators(this.module);
         if (decorators.length !== 1) {
@@ -57,30 +60,53 @@ class ModuleResolver_ extends ModuleResolver {
             this._throwInvalid('ThModule', this.module);
         }
         this.metadata = new ModuleMetadata(decorators[0].metadata);
-        this._parent = parent || null;
+        this.injectorTree = new InjectorBranch_(this);
+        this._parent = parent as ModuleResolver_ || null;
+        if (Array.isArray(extraControllers)) {
+            this.metadata._controllers.push(...extraControllers);
+        }
+        if (!this._isMainApplication()) {
+            MainApplication.getChildResolvers().set(this.module, this);
+        }
+
         this._resolveControllersAndModels();
         this._resolveExports();
         this._resolveMiddlewares();
-        this._resolveImports();
         this._resolveRouters();
         this._applyRouter();
+        this._resolveImports();
         this._resolveInstance();
     }
 
     _resolveControllersAndModels() {
-        const controllers = this.metadata._controllers || [];
+        const controllers = this.metadata._controllers;
         for(const controller of controllers) {
-            if (!checkClassHasDecoratorType('ThController', controller)) {
+            const isInjectorToken = controller.token instanceof InjectorToken && !isUndefined(controller.value);
+            const isThController  = checkClassHasDecoratorType('ThController', controller);
+            if (isInjectorToken) {
+                this.injectorTree.pushResolved(controller.token, controller.value);
+            }
+            else if (isThController) {
+                this.injectorTree.pushAndResolve(controller);
+            }
+            else {
                 this._throwInvalid('ThController', controller);
             }
         }
-        const models = this.metadata._models || [];
+        const models = this.metadata._models;
         for(const model of models) {
-            if (!checkClassHasDecoratorType('ThModel', model)) {
+            const isInjectorToken = model.token instanceof InjectorToken  && !isUndefined(model.value);
+            const isThModel       = checkClassHasDecoratorType('ThModel', model);
+            if (isInjectorToken) {
+                this.injectorTree.pushResolved(model.token, model.value);
+            }
+            else if (isThModel) {
+                this.injectorTree.pushAndResolve(model);
+            }
+            else {
                 this._throwInvalid('ThModel', model);
             }
         }
-        this.injectorTree = new InjectorBranch_([...controllers, ...models], this);
     }
 
     _resolveImports() {
@@ -88,8 +114,25 @@ class ModuleResolver_ extends ModuleResolver {
         if (!imports) {
             return;
         }
-        for(let module of imports) {
-            this.childrens.push(new ModuleResolver_(module, this));
+        for(const module of imports) {
+            if (typeof module === "function") {
+                if (!checkClassHasDecoratorType('ThModule', module)) {
+                    this._throwInvalid('ThModule', module);
+                }
+                let resolvedModule;
+                if (MainApplication.getChildResolvers().has(module)) {
+                    resolvedModule = <ModuleResolver_>MainApplication.getChildResolvers().get(module);
+                } else {
+                    resolvedModule = new ModuleResolver_(module, this);
+                    this.childrens.push(resolvedModule);
+                }
+                const moduleInjectoTree = resolvedModule.injectorTree;
+                const exports = resolvedModule.metadata._exports;
+                for (const exp of exports) {
+                    const instance = moduleInjectoTree.get(exp);
+                    this.injectorTree.pushResolved(exp, instance);
+                }
+            }
         }
     }
 
@@ -133,7 +176,7 @@ class ModuleResolver_ extends ModuleResolver {
 
     _resolveInstance() {
         this.instance = resolveDeps(this.module, this.injectorTree);
-        (<InjectorBranch_>this.injectorTree).pushResolved(this.module, this.instance);
+        this.injectorTree.pushResolved(this.module, this.instance);
     }
 
     _resolveExports() {
@@ -150,31 +193,32 @@ class ModuleResolver_ extends ModuleResolver {
                     `To ${stringify(exp)} can be exported, he need to be declared.`
                 )
             }
-            const instance = this.injectorTree.get(exp);
-            const injectorTree = <InjectorBranch_>this.injectorTree;
-            const parentBranch = <InjectorBranch_>injectorTree.getParentBranch();
-            if (parentBranch) {
-                parentBranch.pushResolved(exp, instance);
-                /**
-                 * Remove duplicated reference, now reference can be find only in parent injector branch.
-                 */
-                injectorTree.remove(exp);
-            }
         }
     }
 
-    _applyRouter() {
+    _isMainApplication(): boolean {
+        return this.module === MainApplication;
+    }
 
+    _applyRouter() {
         const basePath = this.metadata._basePath || '/';
 
-        if (this._parent) {
-            this._parent.getRouter().use(basePath, this.router);
+        if (this._isMainApplication()) {
             return;
         }
 
+        if (this._parent) {
+            if (!this._parent._isMainApplication()) {
+                this._parent.getRouter().use(basePath, this.router);
+                return;
+            }
+        }
+
         const expressController = <ExpressController>this.injectorTree.get(ExpressController);
-        const expressApp = expressController.getApp();
-        expressApp.use(basePath, this.router);
+        if (expressController) {
+            const expressApp = expressController.getApp();
+            expressApp.use(basePath, this.router);
+        }
     }
 
     _throwInvalid(expected: string, cls: any) {
@@ -211,22 +255,22 @@ class ModuleResolver_ extends ModuleResolver {
  * @hidden
  */
 export class ModuleMetadata {
-    _controllers: any[]|null;
-    _models: any[]|null;
+    _controllers: any[];
+    _models: any[];
     _basePath: string|null;
     _middlewares: any[]|null;
     _imports: any[]|null;
     _routers: any[]|null;
-    _exports: any[]|null;
+    _exports: any[];
 
     constructor({controllers, basePath, middlewares, imports, routers, models, exports}: ThModule) {
-        this._controllers = controllers || null;
-        this._models = models || null;
+        this._controllers = controllers || [];
+        this._models = models || [];
         this._routers = routers || null;
         this._middlewares = middlewares || null;
         this._basePath = basePath || null;
         this._imports = imports || null;
-        this._exports = exports || null;
+        this._exports = exports || [];
     }
 }
 

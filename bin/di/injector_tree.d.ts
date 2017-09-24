@@ -15,11 +15,11 @@ export declare class InjectorBranch_ extends InjectorBranch {
     private module;
     _controllersCache: Map<any, any>;
     _controllers: any[];
-    constructor(_controllers: any[], module: ModuleResolver);
+    constructor(module: ModuleResolver);
     isDeclared(controller: any): boolean;
     get<T = any>(controller: any): any;
-    getParentBranch(): InjectorBranch | null;
-    push(cls: any): void;
+    getParentBranch(): InjectorBranch_ | null;
+    pushAndResolve<T = any>(cls: any): T;
     pushResolved(cls: any, instance: any): void;
     remove(cls: any): void;
     _initiate(controller: any): any;

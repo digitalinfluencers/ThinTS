@@ -5,8 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file.
  */
-import {resolveDeps} from "../util";
+import {resolveDeps, stringify} from "../util";
 import {ModuleResolver} from "../module_resolver";
+import {InjectorToken} from "./injector_token";
 
 /**
  * Responsible to manage all dependencies in modules.
@@ -25,15 +26,10 @@ export abstract class InjectorBranch {
 export class InjectorBranch_ extends InjectorBranch {
 
     _controllersCache = new Map<any, any>();
-    _controllers: any[];
+    _controllers: any[] = [];
 
-    constructor(_controllers: any[], private module: ModuleResolver) {
+    constructor(private module: ModuleResolver) {
         super();
-        this._controllers = _controllers;
-
-        for (const controller of _controllers) {
-            this._initiate(controller);
-        }
     }
 
     isDeclared(controller: any) {
@@ -58,17 +54,22 @@ export class InjectorBranch_ extends InjectorBranch {
         return null;
     }
 
-    getParentBranch(): InjectorBranch|null {
+    getParentBranch(): InjectorBranch_|null {
         const parent = this.module.getParent();
-        return parent ? parent.getInjectorTree() : null;
+        return parent ? parent.getInjectorTree() as InjectorBranch_ : null;
     }
 
-    push(cls: any) {
-        this._controllers.push(cls);
-        this.get(cls);
+    pushAndResolve<T = any>(cls: any): T {
+        if (!this.isDeclared(cls)) {
+            this._controllers.push(cls);
+        }
+        return this.get(cls);
     }
 
     pushResolved(cls: any, instance: any) {
+        if (this.isDeclared(cls)) {
+            return;
+        }
         this._controllers.push(cls);
         this._controllersCache.set(cls, instance);
     }
@@ -84,17 +85,26 @@ export class InjectorBranch_ extends InjectorBranch {
     }
 
     _initiate(controller: any) {
-        if (!(controller && typeof controller === "function")) {
+        if (!controller) {
+            this._throwInvalid(controller);
+        }
+        if (controller.token) {
+            this._controllersCache.set(controller.token, controller.value);
+            this._controllers.push(controller.token);
+            return controller.value;
+        }
+        if (typeof controller !== "function") {
             this._throwInvalid(controller);
         }
         const instance = resolveDeps(controller, this);
         this._controllersCache.set(controller, instance);
+        this._controllers.push(controller);
         return instance;
     }
 
     _throwInvalid(cls: any) {
         throw new Error(
-            `Invalid controller ${cls}.`
+            `Invalid controller ${stringify(cls)}.`
         )
     }
 

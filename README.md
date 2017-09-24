@@ -1,8 +1,13 @@
 # ThinTS
 
-[![Build Status][travis-image]][travis-url] [![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url] [![NPM Version][npm-image]][npm-url] [![npm](https://img.shields.io/npm/dt/thints.svg)](https://www.npmjs.com/package/thints)
 
 A simple, angular based and typed framework for RestAPIs with [node](http://nodejs.org).
+
+# Depedencies
+##### * [Typescript](https://github.com/Microsoft/TypeScript)
+##### * [Node.js](https://nodejs.org) (tested in >=7.6)
+##### * [Express](expressjs.com/pt-br/)
 
 # Installation
 ```bash
@@ -12,7 +17,7 @@ $ npm install thints --save
 # QuickStart
 Quick example.
 ```TypeScript
-import {MainApplication, ThModule, ThController, ThRouter, GET} from "thints";
+import {MainApplication, MainApplicationConfig, ThModule, ThController, ThRouter, GET} from "thints";
 
 @ThController()
 class ExampleController {
@@ -39,7 +44,26 @@ class ExampleRouter {
 })
 class MyApiModule {}
 
-MainApplication.bootstrap(MyApiModule);
+
+const config: MainApplicationConfig = {
+    http: {
+        autostart: true, // default true
+        port: 8000, // default 80
+        host: "localhost" // default "localhost"
+    },
+    https: {
+        autostart: true, // default false
+        port: 8443, // default 443
+        host: "localhost", // default "localhost"
+        credentials: {
+            keyUrl: "my/key/url.key",
+            certificateUrl: "my/cert/url.cert"
+        }
+    }
+};
+
+
+MainApplication.bootstrap(MyApiModule, config);
 ```
 
 A GET request to 'url/api/name' call ExampleRouter and return:

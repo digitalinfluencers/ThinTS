@@ -1,6 +1,7 @@
 /// <reference types="express" />
 import { ThMiddlewareImplements } from "./th_middleware";
 import { RequestHandler } from "express";
+import { InjectorToken } from "../di/injector_token";
 /**
  * @module Decorators/ThModule
  * @whatItDoes ThModule Decorator
@@ -73,7 +74,10 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    controllers?: any[];
+    controllers?: Array<any | {
+        token: InjectorToken;
+        value: any;
+    }>;
     /**
      * Import all models.
      *

@@ -10,6 +10,7 @@ import {MainApplication, ThModule, ThRouter, ThController, ExpressController, GE
 import {Request, Response, NextFunction} from "express";
 import * as supertest from "supertest";
 import {POST} from "../src/metadata/th_router_methods";
+import {bootstrap} from "../src/main_application";
 
 
 
@@ -79,8 +80,10 @@ class MathModule {}
 
 describe("ThRouter", () => {
 
-    const mainModuleResolver = MainApplication.bootstrap(MathModule);
-    const expressController  = <ExpressController>mainModuleResolver.getInjectorTree().get(ExpressController);
+    const apiModuleResolver = bootstrap(MathModule, {
+        http: { autostart: false }
+    });
+    const expressController  = <ExpressController>apiModuleResolver.getInjectorTree().get(ExpressController);
     const expressApp         = expressController.getApp();
 
     it("should be created /math/sum/ router", async () => {

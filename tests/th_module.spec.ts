@@ -7,6 +7,7 @@
  */
 
 import {ThModule, ThController, MainApplication} from "../src/";
+import {bootstrap} from "../src/main_application";
 
 
 @ThController() class ThControllerOne { n: number; }
@@ -46,8 +47,9 @@ class ThModuleParent {
 
 describe("ThModule", () => {
 
-    const mainModuleResolver = MainApplication.bootstrap(ThModuleParent);
-    const thModuleParentResolver = mainModuleResolver.getChildren(ThModuleParent);
+    const thModuleParentResolver = bootstrap(ThModuleParent, {
+        http: { autostart: false }
+    });
 
     it("should be imported all childrens", () => {
         const children = thModuleParentResolver.getChildren(ThModuleChildren);

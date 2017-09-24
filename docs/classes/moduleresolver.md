@@ -33,7 +33,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L26)*
+*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L29)*
 
 
 
@@ -52,7 +52,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L27)*
+*Defined in [module_resolver.ts:30](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L30)*
 
 
 
@@ -86,7 +86,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L23)*
+*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L26)*
 
 
 
@@ -109,7 +109,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L28)*
+*Defined in [module_resolver.ts:31](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L31)*
 
 
 
@@ -132,7 +132,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:24](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L24)*
+*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L27)*
 
 
 
@@ -155,7 +155,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:25](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L25)*
+*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L28)*
 
 
 
@@ -173,12 +173,12 @@ ___
 
 ### «Static» create
 
-► **create**(module: *`any`*, parent?: *[ModuleResolver](moduleresolver.md)*): [ModuleResolver](moduleresolver.md)
+► **create**(module: *`any`*, parent?: *[ModuleResolver](moduleresolver.md)*, extraControllers?: *`any`[]*): [ModuleResolver](moduleresolver.md)
 
 
 
 
-*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/097d17e/src/module_resolver.ts#L29)*
+*Defined in [module_resolver.ts:32](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L32)*
 
 
 
@@ -188,6 +188,7 @@ ___
 | ------ | ------ | ------ |
 | module | `any`   |  - |
 | parent | [ModuleResolver](moduleresolver.md)   |  - |
+| extraControllers | `any`[]   |  - |
 
 
 
