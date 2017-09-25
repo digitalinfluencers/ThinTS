@@ -7,7 +7,7 @@ A simple, angular based and typed framework for RestAPIs with [node](http://node
 # Depedencies
 ##### * [Typescript](https://github.com/Microsoft/TypeScript)
 ##### * [Node.js](https://nodejs.org) (tested in >=7.6)
-##### * [Express](expressjs.com/pt-br/)
+##### * [Express](https://expressjs.com/pt-br/)
 
 # Installation
 ```bash
@@ -63,7 +63,7 @@ const config: MainApplicationConfig = {
 };
 
 
-MainApplication.bootstrap(MyApiModule, config);
+bootstrap(MyApiModule, config);
 ```
 
 A GET request to 'url/api/name' call ExampleRouter and return:

@@ -12,12 +12,12 @@ import {resolveDeps, stringify} from "./util";
 import {InjectorBranch, InjectorBranch_} from "./di/injector_tree";
 import * as express from "express";
 import {ExpressController} from "./controllers/express_controller";
-import {RequestHandler, Router} from "express";
+import {Router} from "express";
 import {isClass} from "./util";
 import {ThMiddlewareImplements} from "./metadata/th_middleware";
-import {MAIN_CHILD_MODULES, MainApplication} from "./main_application";
+import {MainApplication} from "./main_application";
 import {InjectorToken} from "./di/injector_token";
-import {isUndefined} from "util";
+
 
 /**
  * Responsible to compile and manage all modules.
@@ -29,6 +29,7 @@ export abstract class ModuleResolver {
     abstract getChildren(cls: any): ModuleResolver|null;
     abstract getChildren<T>(cls: T): T;
     abstract getModuleInstance(): any;
+    abstract getModule(): any;
     static create(module: any, parent?: ModuleResolver, extraControllers?: any[]): ModuleResolver {
         return new ModuleResolver_(module, parent, extraControllers);
     }
@@ -44,99 +45,72 @@ class ModuleResolver_ extends ModuleResolver {
     childrens: ModuleResolver[] = [];
     injectorTree: InjectorBranch_;
     metadata: ModuleMetadata;
-    _parent: ModuleResolver_|null;
+    parent: ModuleResolver_|null;
     instance: any;
     routersCache: any[] = [];
     router: any = express.Router();
     middlewaresCache: any[] = [];
 
-    constructor(private module: any, parent?: ModuleResolver, extraControllers?: any[]) {
+    constructor(private module: any, parent?: ModuleResolver, extraControllers: any[] = []) {
         super();
         const decorators = Reflection.decorators(this.module);
-        if (decorators.length !== 1) {
-            this._throwInvalid('ThModule', this.module);
+        if (decorators.length !== 1 || stringify(decorators[0]) !== "ThModule") {
+            _throwInvalid('ThModule', this.module);
         }
-        if (stringify(decorators[0]) !== "ThModule") {
-            this._throwInvalid('ThModule', this.module);
-        }
+        this.parent = (parent as ModuleResolver_) || null;
         this.metadata = new ModuleMetadata(decorators[0].metadata);
+        this.metadata._controllers.push(...extraControllers);
         this.injectorTree = new InjectorBranch_(this);
-        this._parent = parent as ModuleResolver_ || null;
-        if (Array.isArray(extraControllers)) {
-            this.metadata._controllers.push(...extraControllers);
-        }
+
+
         if (!this._isMainApplication()) {
             MainApplication.getChildResolvers().set(this.module, this);
         }
 
-        this._resolveControllersAndModels();
-        this._resolveExports();
-        this._resolveMiddlewares();
-        this._resolveRouters();
-        this._applyRouter();
-        this._resolveImports();
-        this._resolveInstance();
+        this.normalizeControllersAndModels();
+        this.resolveImports();
+        this.resolveExports();
+        this.resolveMiddlewares();
+        this.resolveRouters();
+        this.applyRouter();
+        this.resolveInstance();
     }
 
-    _resolveControllersAndModels() {
+    normalizeControllersAndModels() {
         const controllers = this.metadata._controllers;
-        for(const controller of controllers) {
-            const isInjectorToken = controller.token instanceof InjectorToken && !isUndefined(controller.value);
-            const isThController  = checkClassHasDecoratorType('ThController', controller);
-            if (isInjectorToken) {
-                this.injectorTree.pushResolved(controller.token, controller.value);
-            }
-            else if (isThController) {
-                this.injectorTree.pushAndResolve(controller);
-            }
-            else {
-                this._throwInvalid('ThController', controller);
-            }
-        }
         const models = this.metadata._models;
-        for(const model of models) {
-            const isInjectorToken = model.token instanceof InjectorToken  && !isUndefined(model.value);
-            const isThModel       = checkClassHasDecoratorType('ThModel', model);
-            if (isInjectorToken) {
-                this.injectorTree.pushResolved(model.token, model.value);
-            }
-            else if (isThModel) {
-                this.injectorTree.pushAndResolve(model);
-            }
-            else {
-                this._throwInvalid('ThModel', model);
-            }
-        }
+        const normalizedControllers = _normalizeDependencies(controllers, "ThController");
+        const normalizedModels      = _normalizeDependencies(models, "ThModel");
+        this.injectorTree._dependencies = [...normalizedControllers, ...normalizedModels];
     }
 
-    _resolveImports() {
+    resolveImports() {
         const imports = this.metadata._imports;
         if (!imports) {
             return;
         }
         for(const module of imports) {
-            if (typeof module === "function") {
-                if (!checkClassHasDecoratorType('ThModule', module)) {
-                    this._throwInvalid('ThModule', module);
-                }
-                let resolvedModule;
-                if (MainApplication.getChildResolvers().has(module)) {
-                    resolvedModule = <ModuleResolver_>MainApplication.getChildResolvers().get(module);
-                } else {
-                    resolvedModule = new ModuleResolver_(module, this);
-                    this.childrens.push(resolvedModule);
-                }
-                const moduleInjectoTree = resolvedModule.injectorTree;
-                const exports = resolvedModule.metadata._exports;
-                for (const exp of exports) {
-                    const instance = moduleInjectoTree.get(exp);
-                    this.injectorTree.pushResolved(exp, instance);
-                }
+            if (!checkClassHasDecoratorType('ThModule', module)) {
+                _throwInvalid('ThModule', module);
+            }
+            let resolvedModule: ModuleResolver_;
+            if (MainApplication.getChildResolvers().has(module)) {
+                resolvedModule = MainApplication.getChildResolvers().get(module) as any;
+            }
+            else {
+                resolvedModule = new ModuleResolver_(module, this);
+            }
+            this.childrens.push(resolvedModule);
+            const moduleInjectorTree = resolvedModule.injectorTree;
+            const exports = resolvedModule.metadata._exports;
+            for (const exp of exports) {
+                const instance = moduleInjectorTree.get(exp);
+                this.injectorTree.pushResolved(exp, instance);
             }
         }
     }
 
-    _resolveMiddlewares() {
+    resolveMiddlewares() {
         const middlewares = this.metadata._middlewares;
         if (!middlewares) {
             return;
@@ -147,39 +121,39 @@ class ModuleResolver_ extends ModuleResolver {
                 return;
             }
             if (!checkClassHasDecoratorType('ThMiddleware', md)) {
-                this._throwInvalid('ThMiddleware', md);
+                _throwInvalid('ThMiddleware', md);
             }
             const instance = <ThMiddlewareImplements>resolveDeps(md, this.injectorTree);
             if (typeof instance.handler !== "function") {
-                this._throwInvalid('ThMiddlewareImplements', md);
+                _throwInvalid('ThMiddlewareImplements', md);
             }
             this.middlewaresCache.push(instance);
             this.router.use((...args: any[]) => (<any>instance.handler)(...args));
         });
     }
 
-    _resolveRouters() {
+    resolveRouters() {
         const routers = this.metadata._routers || [];
         const resolvedRouters = routers.map((router: any) => {
             if (!checkClassHasDecoratorType('ThRouter', router)) {
-                this._throwInvalid("ThRouter", router);
+                _throwInvalid("ThRouter", router);
             }
             const instance = resolveDeps(router, this.injectorTree);
             const basePath = Reflection.decorators(router)[0].metadata || ('/'+router.name);
             const prototype = Object.getPrototypeOf(instance);
-            const decorators = Reflection.decorators(prototype);
+            const decorators = Reflection.decorators(prototype);;
             this.routersCache.push(instance);
             _wrapMethodsInRouter(basePath, instance, decorators, this.router);
         });
         this.routersCache = resolvedRouters;
     }
 
-    _resolveInstance() {
+    resolveInstance() {
         this.instance = resolveDeps(this.module, this.injectorTree);
         this.injectorTree.pushResolved(this.module, this.instance);
     }
 
-    _resolveExports() {
+    resolveExports() {
         const exports = this.metadata._exports;
         if (!exports) {
             return;
@@ -196,20 +170,16 @@ class ModuleResolver_ extends ModuleResolver {
         }
     }
 
-    _isMainApplication(): boolean {
-        return this.module === MainApplication;
-    }
-
-    _applyRouter() {
+    applyRouter() {
         const basePath = this.metadata._basePath || '/';
 
         if (this._isMainApplication()) {
             return;
         }
 
-        if (this._parent) {
-            if (!this._parent._isMainApplication()) {
-                this._parent.getRouter().use(basePath, this.router);
+        if (this.parent) {
+            if (!this.parent._isMainApplication()) {
+                this.parent.getRouter().use(basePath, this.router);
                 return;
             }
         }
@@ -221,14 +191,12 @@ class ModuleResolver_ extends ModuleResolver {
         }
     }
 
-    _throwInvalid(expected: string, cls: any) {
-        throw new Error(
-            `Invalid ${expected} ${stringify(cls)}.`
-        )
+    _isMainApplication(): boolean {
+        return this.module === MainApplication;
     }
 
     getParent() {
-        return this._parent;
+        return this.parent;
     }
 
     getInjectorTree() {
@@ -245,6 +213,10 @@ class ModuleResolver_ extends ModuleResolver {
 
     getModuleInstance(): any {
         return this.instance;
+    }
+
+    getModule(): any {
+        return this.module;
     }
 
 }
@@ -318,4 +290,46 @@ function _wrapMethodsInRouter(basePath: string, instance: any, decorators: any[]
  */
 function _wrapRouterHandlerInMethod(instance: any, method: string) {
     return (...args: any[]) => instance[method](...args);
+}
+
+/**
+ * @internal
+ * @hidden
+ * @private
+ */
+function _normalizeDependencies(clss: any[], type: string) {
+    return clss.map((cls: any) => {
+        if (typeof cls === "function") {
+            if (!checkClassHasDecoratorType(type, cls)) {
+                _throwInvalid(type, cls);
+            }
+            return { token: cls, class: cls }
+        }
+        if (cls.token) {
+            const isInjectorToken = cls.token instanceof InjectorToken;
+            const isFunction      = typeof cls.token == "function";
+            if (!isFunction && !isInjectorToken) {
+                _throwInvalid(`${type} Token,`, "must be InjectorToken");
+            }
+            if (cls.factory && typeof cls.factory !== "function") {
+                _throwInvalid(`${type} factory,`, "must be a function");
+            }
+            if (cls.class && !isClass(cls.class)) {
+                _throwInvalid(`${type} class,`, "must be a class");
+            }
+            return cls;
+        }
+        _throwInvalid(type, cls);
+    })
+}
+
+/**
+ * @internal
+ * @hidden
+ * @private
+ */
+function _throwInvalid(expected: string, cls: any) {
+    throw new Error(
+        `Invalid ${expected} ${stringify(cls)}.`
+    )
 }

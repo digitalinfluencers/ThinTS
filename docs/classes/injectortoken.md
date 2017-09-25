@@ -56,7 +56,7 @@ Enables inject in injector tree predefined values.
 
 
 
-*Defined in [di/injector_token.ts:35](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L35)*
+*Defined in [di/injector_token.ts:35](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L35)*
 
 
 
@@ -79,7 +79,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L34)*
+*Defined in [di/injector_token.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L34)*
 
 
 
@@ -102,7 +102,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L37)*
+*Defined in [di/injector_token.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L37)*
 
 
 
@@ -133,7 +133,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:44](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L44)*
+*Defined in [di/injector_token.ts:44](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L44)*
 
 
 

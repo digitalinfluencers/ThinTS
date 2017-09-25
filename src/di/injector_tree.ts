@@ -7,7 +7,7 @@
  */
 import {resolveDeps, stringify} from "../util";
 import {ModuleResolver} from "../module_resolver";
-import {InjectorToken} from "./injector_token";
+import {ThModuleDependency} from "../metadata/th_module";
 
 /**
  * Responsible to manage all dependencies in modules.
@@ -25,28 +25,24 @@ export abstract class InjectorBranch {
  */
 export class InjectorBranch_ extends InjectorBranch {
 
-    _controllersCache = new Map<any, any>();
-    _controllers: any[] = [];
+    _dependencies: any;
+    _cache = new Map<any, any>();
 
     constructor(private module: ModuleResolver) {
         super();
     }
 
-    isDeclared(controller: any) {
-        return this._controllers.some(c => c===controller);
-    }
-
-    get<T = any>(controller: any): any {
-        if (controller === InjectorBranch) {
+    get<T = any>(token: any): any {
+        if (token === InjectorBranch) {
             return this;
         }
         let branch: InjectorBranch_ = this;
         while(branch instanceof InjectorBranch) {
-            if (branch.isDeclared(controller)) {
-                if (branch._controllersCache.has(controller)) {
-                    return branch._controllersCache.get(controller);
+            if (branch.isDeclared(token)) {
+                if (branch._cache.has(token)) {
+                    return branch._cache.get(token);
                 } else {
-                    return branch._initiate(controller);
+                    return branch.initDependency(token);
                 }
             }
             branch = <InjectorBranch_>branch.getParentBranch();
@@ -61,7 +57,7 @@ export class InjectorBranch_ extends InjectorBranch {
 
     pushAndResolve<T = any>(cls: any): T {
         if (!this.isDeclared(cls)) {
-            this._controllers.push(cls);
+            this._dependencies.push(cls);
         }
         return this.get(cls);
     }
@@ -70,41 +66,42 @@ export class InjectorBranch_ extends InjectorBranch {
         if (this.isDeclared(cls)) {
             return;
         }
-        this._controllers.push(cls);
-        this._controllersCache.set(cls, instance);
+        this._dependencies.push({token: cls, class: cls});
+        this._cache.set(cls, instance);
     }
 
-    remove(cls: any) {
-        if (this._controllersCache.has(cls)) {
-            this._controllersCache.delete(cls);
+    initDependency(cls: any) {
+        if (!cls || !this.isDeclared(cls)) {
+            this._throwInvalid(cls);
         }
-        const index = this._controllers.indexOf(cls);
-        if (index !== -1) {
-            this._controllers.splice(index, 1);
+        const dependency: ThModuleDependency = this._dependencies.find(({token}: any) => token === cls);
+
+        if (dependency.class) {
+            const instance = resolveDeps(dependency.class, this);
+            this._cache.set(dependency.token, instance);
+            return instance;
         }
+        if (dependency.value) {
+            this._cache.set(dependency.token, dependency.value);
+            return dependency.value;
+        }
+        if (dependency.factory) {
+            const deps = dependency.deps || [];
+            const resolvedDeps = deps.map((d: any) => this.get(d));
+            const instance = dependency.factory(...resolvedDeps);
+            this._cache.set(dependency.token, instance);
+            return instance;
+        }
+        this._throwInvalid(cls);
     }
 
-    _initiate(controller: any) {
-        if (!controller) {
-            this._throwInvalid(controller);
-        }
-        if (controller.token) {
-            this._controllersCache.set(controller.token, controller.value);
-            this._controllers.push(controller.token);
-            return controller.value;
-        }
-        if (typeof controller !== "function") {
-            this._throwInvalid(controller);
-        }
-        const instance = resolveDeps(controller, this);
-        this._controllersCache.set(controller, instance);
-        this._controllers.push(controller);
-        return instance;
+    isDeclared(cls: any) {
+        return this._dependencies.some(({token}: any) => token === cls)
     }
 
     _throwInvalid(cls: any) {
         throw new Error(
-            `Invalid controller ${stringify(cls)}.`
+            `Invalid ${stringify(cls)} in ${stringify(this.module.getModule())}.`
         )
     }
 

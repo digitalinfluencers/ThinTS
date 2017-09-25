@@ -2,6 +2,13 @@
 import { ThMiddlewareImplements } from "./th_middleware";
 import { RequestHandler } from "express";
 import { InjectorToken } from "../di/injector_token";
+export interface ThModuleDependency {
+    token: InjectorToken | any;
+    class?: any;
+    factory?: any;
+    deps?: any[];
+    value?: any;
+}
 /**
  * @module Decorators/ThModule
  * @whatItDoes ThModule Decorator
@@ -74,10 +81,7 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    controllers?: Array<any | {
-        token: InjectorToken;
-        value: any;
-    }>;
+    controllers?: Array<any | ThModuleDependency>;
     /**
      * Import all models.
      *
@@ -113,7 +117,7 @@ export interface ThModule {
      *
      * </pre></code>
      */
-    models?: any[];
+    models?: Array<any | ThModuleDependency>;
     /**
      * Import all routers.
      *

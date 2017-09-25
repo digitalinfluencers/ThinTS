@@ -13,6 +13,7 @@ Responsible to compile and manage all modules.
 
 * [getChildren](moduleresolver.md#getchildren)
 * [getInjectorTree](moduleresolver.md#getinjectortree)
+* [getModule](moduleresolver.md#getmodule)
 * [getModuleInstance](moduleresolver.md#getmoduleinstance)
 * [getParent](moduleresolver.md#getparent)
 * [getRouter](moduleresolver.md#getrouter)
@@ -33,7 +34,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L29)*
+*Defined in [module_resolver.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L29)*
 
 
 
@@ -52,7 +53,7 @@ Responsible to compile and manage all modules.
 
 
 
-*Defined in [module_resolver.ts:30](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L30)*
+*Defined in [module_resolver.ts:30](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L30)*
 
 
 
@@ -86,13 +87,36 @@ ___
 
 
 
-*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L26)*
+*Defined in [module_resolver.ts:26](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L26)*
 
 
 
 
 
 **Returns:** [InjectorBranch](injectorbranch.md)
+
+
+
+
+
+___
+
+<a id="getmodule"></a>
+
+###  getModule
+
+► **getModule**(): `any`
+
+
+
+
+*Defined in [module_resolver.ts:32](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L32)*
+
+
+
+
+
+**Returns:** `any`
 
 
 
@@ -109,7 +133,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:31](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L31)*
+*Defined in [module_resolver.ts:31](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L31)*
 
 
 
@@ -132,7 +156,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L27)*
+*Defined in [module_resolver.ts:27](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L27)*
 
 
 
@@ -155,7 +179,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L28)*
+*Defined in [module_resolver.ts:28](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L28)*
 
 
 
@@ -178,7 +202,7 @@ ___
 
 
 
-*Defined in [module_resolver.ts:32](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/module_resolver.ts#L32)*
+*Defined in [module_resolver.ts:33](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/module_resolver.ts#L33)*
 
 
 

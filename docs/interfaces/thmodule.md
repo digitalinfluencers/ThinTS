@@ -26,7 +26,7 @@
 
 **●  basePath**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_module.ts:56](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L56)*
+*Defined in [metadata/th_module.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L65)*
 
 
 
@@ -51,9 +51,9 @@ ___
 
 ### «Optional» controllers
 
-**●  controllers**:  *`Array`.<`any`⎮object>* 
+**●  controllers**:  *`Array`.<`any`⎮[ThModuleDependency](thmoduledependency.md)>* 
 
-*Defined in [metadata/th_module.ts:89](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L89)*
+*Defined in [metadata/th_module.ts:98](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L98)*
 
 
 
@@ -92,7 +92,7 @@ ___
 
 **●  exports**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:213](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L213)*
+*Defined in [metadata/th_module.ts:222](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L222)*
 
 
 
@@ -109,7 +109,7 @@ ___
 
 **●  imports**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:208](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L208)*
+*Defined in [metadata/th_module.ts:217](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L217)*
 
 
 
@@ -158,7 +158,7 @@ ___
 
 **●  middlewares**:  *`Array`.<[ThMiddlewareImplements](thmiddlewareimplements.md)⎮`RequestHandler`>* 
 
-*Defined in [metadata/th_module.ts:256](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L256)*
+*Defined in [metadata/th_module.ts:265](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L265)*
 
 
 
@@ -202,9 +202,9 @@ ___
 
 ### «Optional» models
 
-**●  models**:  *`any`[]* 
+**●  models**:  *`Array`.<`any`⎮[ThModuleDependency](thmoduledependency.md)>* 
 
-*Defined in [metadata/th_module.ts:126](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L126)*
+*Defined in [metadata/th_module.ts:135](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L135)*
 
 
 
@@ -247,7 +247,7 @@ ___
 
 **●  routers**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:163](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_module.ts#L163)*
+*Defined in [metadata/th_module.ts:172](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L172)*
 
 
 

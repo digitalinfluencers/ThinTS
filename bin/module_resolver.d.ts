@@ -19,6 +19,7 @@ export declare abstract class ModuleResolver {
     abstract getChildren(cls: any): ModuleResolver | null;
     abstract getChildren<T>(cls: T): T;
     abstract getModuleInstance(): any;
+    abstract getModule(): any;
     static create(module: any, parent?: ModuleResolver, extraControllers?: any[]): ModuleResolver;
 }
 /**

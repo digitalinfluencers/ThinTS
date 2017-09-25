@@ -15,7 +15,7 @@
 
 **●  name**:  *`string`* 
 
-*Defined in [metadata/th_router_methods.ts:219](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/metadata/th_router_methods.ts#L219)*
+*Defined in [metadata/th_router_methods.ts:219](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_router_methods.ts#L219)*
 
 
 

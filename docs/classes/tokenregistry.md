@@ -27,7 +27,7 @@
 
 **●  _tokens**:  *`Map`.<`any`>,.<[InjectorToken_](injectortoken_.md)>*  =  new Map<any, InjectorToken_>()
 
-*Defined in [di/injector_token.ts:68](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L68)*
+*Defined in [di/injector_token.ts:68](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L68)*
 
 
 
@@ -46,7 +46,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:74](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L74)*
+*Defined in [di/injector_token.ts:74](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L74)*
 
 
 
@@ -77,7 +77,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:80](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L80)*
+*Defined in [di/injector_token.ts:80](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L80)*
 
 
 
@@ -108,7 +108,7 @@ ___
 
 
 
-*Defined in [di/injector_token.ts:70](https://github.com/digitalinfluencers/ThinTS/blob/5a1867c/src/di/injector_token.ts#L70)*
+*Defined in [di/injector_token.ts:70](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/di/injector_token.ts#L70)*
 
 
 
