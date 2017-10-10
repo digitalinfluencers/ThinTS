@@ -32,7 +32,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [controllers/express_controller.ts:43](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L43)*
+*Defined in [controllers/express_controller.ts:43](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L43)*
 
 
 
@@ -62,7 +62,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [controllers/express_controller.ts:49](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L49)*
+*Defined in [controllers/express_controller.ts:49](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L49)*
 
 
 
@@ -85,7 +85,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L53)*
+*Defined in [controllers/express_controller.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L53)*
 
 
 
@@ -116,7 +116,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L65)*
+*Defined in [controllers/express_controller.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L65)*
 
 
 
@@ -139,7 +139,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:75](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L75)*
+*Defined in [controllers/express_controller.ts:75](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L75)*
 
 
 

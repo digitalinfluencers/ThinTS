@@ -22,7 +22,7 @@
 
 
 
-*Defined in [metadata/th_model.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_model.ts#L34)*
+*Defined in [metadata/th_model.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_model.ts#L34)*
 
 
 

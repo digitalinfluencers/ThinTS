@@ -27,7 +27,7 @@
 
 *Inherited from [ExpressControllerConfig](expresscontrollerconfig.md).[http](expresscontrollerconfig.md#http)*
 
-*Defined in [controllers/express_controller.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L18)*
+*Defined in [controllers/express_controller.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L18)*
 
 
 
@@ -43,7 +43,7 @@ ___
 
 *Inherited from [ExpressControllerConfig](expresscontrollerconfig.md).[https](expresscontrollerconfig.md#https)*
 
-*Defined in [controllers/express_controller.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/controllers/express_controller.ts#L23)*
+*Defined in [controllers/express_controller.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/controllers/express_controller.ts#L23)*
 
 
 

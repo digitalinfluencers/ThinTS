@@ -40,7 +40,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 
 
-*Defined in [main_application.ts:33](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/main_application.ts#L33)*
+*Defined in [main_application.ts:33](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/main_application.ts#L33)*
 
 
 
@@ -66,7 +66,7 @@ ThinTS start point, use MainApplication.bootstrap to resolve your app module.
 
 **●  moduleResolver**:  *[ModuleResolver](moduleresolver.md)* 
 
-*Defined in [main_application.ts:33](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/main_application.ts#L33)*
+*Defined in [main_application.ts:33](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/main_application.ts#L33)*
 
 
 
@@ -84,7 +84,7 @@ ___
 getinjectorTree(): [InjectorBranch](injectorbranch.md)
 
 
-*Defined in [main_application.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/main_application.ts#L37)*
+*Defined in [main_application.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/main_application.ts#L37)*
 
 
 
@@ -107,7 +107,7 @@ ___
 
 
 
-*Defined in [main_application.ts:46](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/main_application.ts#L46)*
+*Defined in [main_application.ts:46](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/main_application.ts#L46)*
 
 
 *__deprecated__*: 
@@ -142,7 +142,7 @@ ___
 
 
 
-*Defined in [main_application.ts:41](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/main_application.ts#L41)*
+*Defined in [main_application.ts:41](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/main_application.ts#L41)*
 
 
 

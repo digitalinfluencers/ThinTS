@@ -31,7 +31,7 @@ or @ThRouter('/my') class MyRouter { @PUT() all(req: Request, res: Response) { r
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:126](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_router_methods.ts#L126)*
+*Defined in [metadata/th_router_methods.ts:126](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_router_methods.ts#L126)*
 
 
 

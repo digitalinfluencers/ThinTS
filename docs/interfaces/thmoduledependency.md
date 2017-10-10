@@ -12,7 +12,7 @@
 
 **●  class**:  *`any`* 
 
-*Defined in [metadata/th_module.ts:17](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L17)*
+*Defined in [metadata/th_module.ts:17](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_module.ts#L17)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  deps**:  *`any`[]* 
 
-*Defined in [metadata/th_module.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L19)*
+*Defined in [metadata/th_module.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_module.ts#L19)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  factory**:  *`any`* 
 
-*Defined in [metadata/th_module.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L18)*
+*Defined in [metadata/th_module.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_module.ts#L18)*
 
 
 
@@ -54,7 +54,7 @@ ___
 
 **●  token**:  *[InjectorToken](../classes/injectortoken.md)⎮`any`* 
 
-*Defined in [metadata/th_module.ts:16](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L16)*
+*Defined in [metadata/th_module.ts:16](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_module.ts#L16)*
 
 
 
@@ -68,7 +68,7 @@ ___
 
 **●  value**:  *`any`* 
 
-*Defined in [metadata/th_module.ts:20](https://github.com/digitalinfluencers/ThinTS/blob/ecc6851/src/metadata/th_module.ts#L20)*
+*Defined in [metadata/th_module.ts:20](https://github.com/digitalinfluencers/ThinTS/blob/d0ee093/src/metadata/th_module.ts#L20)*
 
 
 

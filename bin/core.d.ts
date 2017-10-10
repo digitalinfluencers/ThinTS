@@ -8,5 +8,5 @@
 export { ThRouter, ThModule, ThController, ThModel } from "./metadata";
 export { MainApplication, bootstrap, MainApplicationConfig } from "./main_application";
 export { ExpressController, LogController } from "./controllers";
-export { InjectorBranch } from "./di/injector_tree";
+export { InjectorBranch, InjectorToken } from "./di";
 export { ModuleResolver } from "./module_resolver";
