@@ -57,7 +57,7 @@ export class ExpressController {
             this.startHttp();
         }
 
-        if (objectPath(this._config, 'http.autostart', false)) {
+        if (objectPath(this._config, 'https.autostart', false)) {
             this.startHttps();
         }
     }
@@ -73,9 +73,9 @@ export class ExpressController {
     }
 
     startHttps(): Promise<any> {
-        const port = objectPath(this._config, 'http.port', 443);
-        const host = objectPath(this._config, 'http.host', "localhost");
-        const credentials = objectPath(this._config, 'http.credentials');
+        const port = objectPath(this._config, 'https.port', 443);
+        const host = objectPath(this._config, 'https.host', "localhost");
+        const credentials = objectPath(this._config, 'https.credentials');
 
         const key  = fs.readFileSync(credentials.keyUrl, 'utf8');
         const cert = fs.readFileSync(credentials.certificateUrl, 'utf8');
