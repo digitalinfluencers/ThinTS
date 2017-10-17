@@ -42,7 +42,7 @@
 
 
 
-*Defined in [di/injector_token.ts:51](https://github.com/digitalinfluencers/ThinTS/blob/5be9d62/src/di/injector_token.ts#L51)*
+*Defined in [di/injector_token.ts:51](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L51)*
 
 
 
@@ -75,7 +75,7 @@
 
 *Overrides [InjectorToken](injectortoken.md).[getId](injectortoken.md#getid)*
 
-*Defined in [di/injector_token.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/5be9d62/src/di/injector_token.ts#L61)*
+*Defined in [di/injector_token.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L61)*
 
 
 
@@ -100,7 +100,7 @@ ___
 
 *Overrides [InjectorToken](injectortoken.md).[getToken](injectortoken.md#gettoken)*
 
-*Defined in [di/injector_token.ts:57](https://github.com/digitalinfluencers/ThinTS/blob/5be9d62/src/di/injector_token.ts#L57)*
+*Defined in [di/injector_token.ts:57](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L57)*
 
 
 
@@ -125,7 +125,7 @@ ___
 
 *Inherited from [InjectorToken](injectortoken.md).[create](injectortoken.md#create)*
 
-*Defined in [di/injector_token.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/5be9d62/src/di/injector_token.ts#L37)*
+*Defined in [di/injector_token.ts:37](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L37)*
 
 
 
@@ -158,7 +158,7 @@ ___
 
 *Inherited from [InjectorToken](injectortoken.md).[get](injectortoken.md#get)*
 
-*Defined in [di/injector_token.ts:44](https://github.com/digitalinfluencers/ThinTS/blob/5be9d62/src/di/injector_token.ts#L44)*
+*Defined in [di/injector_token.ts:44](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L44)*
 
 
 

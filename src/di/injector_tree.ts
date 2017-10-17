@@ -8,6 +8,7 @@
 import {resolveDeps, stringify} from "../util";
 import {ModuleResolver} from "../module_resolver";
 import {ThModuleDependency} from "../metadata/th_module";
+import {InjectorToken} from "./injector_token";
 
 /**
  * Responsible to manage all dependencies in modules.

@@ -139,9 +139,9 @@ class ModuleResolver_ extends ModuleResolver {
                 _throwInvalid("ThRouter", router);
             }
             const instance = resolveDeps(router, this.injectorTree);
-            const basePath = Reflection.decorators(router)[0].metadata || ('/'+router.name);
+            const basePath = Reflection.decorators(router)[0].metadata || '';
             const prototype = Object.getPrototypeOf(instance);
-            const decorators = Reflection.decorators(prototype);;
+            const decorators = Reflection.decorators(prototype);
             this.routersCache.push(instance);
             _wrapMethodsInRouter(basePath, instance, decorators, this.router);
         });
@@ -267,7 +267,7 @@ function _wrapMethodsInRouter(basePath: string, instance: any, decorators: any[]
         const httpMethod = decorator.name;
         const methodName = decorator.metadata.method;
         const args = decorator.metadata.args;
-        const path = args[0] || methodName;
+        const path = args[0] || '';
         const callerArgs = [`${basePath}${path}`, _wrapRouterHandlerInMethod(instance, methodName)];
         if (httpMethods.indexOf(httpMethod) == -1) {
             throw new Error(`Invalid http method at ${instance.constructor.name}.${methodName}`);
@@ -307,7 +307,7 @@ function _normalizeDependencies(clss: any[], type: string) {
         }
         if (cls.token) {
             const isInjectorToken = cls.token instanceof InjectorToken;
-            const isFunction      = typeof cls.token == "function";
+            const isFunction      = typeof cls.token === "function";
             if (!isFunction && !isInjectorToken) {
                 _throwInvalid(`${type} Token,`, "must be InjectorToken");
             }
