@@ -59,7 +59,7 @@
 
 **●  MAIN_CHILD_MODULES**:  *[InjectorToken](classes/injectortoken.md)*  =  InjectorToken.create('MAIN_CHILD_MODULES')
 
-*Defined in [main_application.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/main_application.ts#L18)*
+*Defined in [main_application.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/main_application.ts#L18)*
 
 
 
@@ -73,7 +73,7 @@ ___
 
 **●  globalTokenRegistry**:  *[TokenRegistry](classes/tokenregistry.md)*  =  new TokenRegistry()
 
-*Defined in [di/injector_token.ts:85](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/di/injector_token.ts#L85)*
+*Defined in [di/injector_token.ts:85](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/di/injector_token.ts#L85)*
 
 
 
@@ -92,7 +92,7 @@ ___
 
 
 
-*Defined in [util.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/util.ts#L65)*
+*Defined in [util.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/util.ts#L65)*
 
 
 
@@ -124,7 +124,7 @@ ___
 
 
 
-*Defined in [main_application.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/main_application.ts#L53)*
+*Defined in [main_application.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/main_application.ts#L53)*
 
 
 
@@ -156,7 +156,7 @@ ___
 
 
 
-*Defined in [util.ts:86](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/util.ts#L86)*
+*Defined in [util.ts:86](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/util.ts#L86)*
 
 
 
@@ -203,7 +203,7 @@ ___
 
 
 
-*Defined in [util.ts:54](https://github.com/digitalinfluencers/ThinTS/blob/686c6e5/src/util.ts#L54)*
+*Defined in [util.ts:54](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/util.ts#L54)*
 
 
 

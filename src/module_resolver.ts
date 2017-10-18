@@ -17,6 +17,7 @@ import {isClass} from "./util";
 import {ThMiddlewareImplements} from "./metadata/th_middleware";
 import {MainApplication} from "./main_application";
 import {InjectorToken} from "./di/injector_token";
+import {LogController} from "./controllers/log.controller";
 
 
 /**
@@ -68,9 +69,9 @@ class ModuleResolver_ extends ModuleResolver {
         }
 
         this.normalizeControllersAndModels();
+        this.resolveMiddlewares();
         this.resolveImports();
         this.resolveExports();
-        this.resolveMiddlewares();
         this.resolveRouters();
         this.applyRouter();
         this.resolveInstance();
@@ -134,7 +135,7 @@ class ModuleResolver_ extends ModuleResolver {
 
     resolveRouters() {
         const routers = this.metadata._routers || [];
-        const resolvedRouters = routers.map((router: any) => {
+        this.routersCache = routers.map((router: any) => {
             if (!checkClassHasDecoratorType('ThRouter', router)) {
                 _throwInvalid("ThRouter", router);
             }
@@ -142,10 +143,9 @@ class ModuleResolver_ extends ModuleResolver {
             const basePath = Reflection.decorators(router)[0].metadata || '';
             const prototype = Object.getPrototypeOf(instance);
             const decorators = Reflection.decorators(prototype);
-            this.routersCache.push(instance);
             _wrapMethodsInRouter(basePath, instance, decorators, this.router);
+            return instance;
         });
-        this.routersCache = resolvedRouters;
     }
 
     resolveInstance() {
