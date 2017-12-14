@@ -39,7 +39,7 @@ or
 
 **●  path**:  *`undefined`⎮`string`* 
 
-*Defined in [metadata/th_router_methods.ts:206](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/metadata/th_router_methods.ts#L206)*
+*Defined in [metadata/th_router_methods.ts:206](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/metadata/th_router_methods.ts#L206)*
 
 
 

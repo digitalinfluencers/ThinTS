@@ -29,7 +29,7 @@ Responsible to manage all dependencies in modules.
 
 
 
-*Defined in [di/injector_tree.ts:17](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/di/injector_tree.ts#L17)*
+*Defined in [di/injector_tree.ts:17](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/di/injector_tree.ts#L17)*
 
 
 
@@ -51,7 +51,7 @@ Responsible to manage all dependencies in modules.
 
 
 
-*Defined in [di/injector_tree.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/di/injector_tree.ts#L18)*
+*Defined in [di/injector_tree.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/di/injector_tree.ts#L18)*
 
 
 
@@ -82,7 +82,7 @@ ___
 
 
 
-*Defined in [di/injector_tree.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/di/injector_tree.ts#L19)*
+*Defined in [di/injector_tree.ts:19](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/di/injector_tree.ts#L19)*
 
 
 

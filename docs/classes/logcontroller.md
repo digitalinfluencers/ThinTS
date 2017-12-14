@@ -27,7 +27,7 @@
 
 
 
-*Defined in [controllers/log.controller.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/log.controller.ts#L34)*
+*Defined in [controllers/log.controller.ts:34](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/log.controller.ts#L34)*
 
 
 
@@ -58,7 +58,7 @@ ___
 
 
 
-*Defined in [controllers/log.controller.ts:15](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/log.controller.ts#L15)*
+*Defined in [controllers/log.controller.ts:15](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/log.controller.ts#L15)*
 
 
 
@@ -90,7 +90,7 @@ ___
 
 
 
-*Defined in [controllers/log.controller.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/log.controller.ts#L29)*
+*Defined in [controllers/log.controller.ts:29](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/log.controller.ts#L29)*
 
 
 
@@ -121,7 +121,7 @@ ___
 
 
 
-*Defined in [controllers/log.controller.ts:24](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/log.controller.ts#L24)*
+*Defined in [controllers/log.controller.ts:24](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/log.controller.ts#L24)*
 
 
 

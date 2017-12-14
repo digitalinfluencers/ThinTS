@@ -25,7 +25,7 @@
 
 **●  http**:  *`undefined`⎮object* 
 
-*Defined in [controllers/express_controller.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L18)*
+*Defined in [controllers/express_controller.ts:18](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L18)*
 
 
 
@@ -39,7 +39,7 @@ ___
 
 **●  https**:  *`undefined`⎮object* 
 
-*Defined in [controllers/express_controller.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L23)*
+*Defined in [controllers/express_controller.ts:23](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L23)*
 
 
 

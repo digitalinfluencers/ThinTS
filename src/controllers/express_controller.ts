@@ -50,6 +50,14 @@ export class ExpressController {
         return this._app;
     }
 
+    getHttpServer(): nodeHttp.Server {
+        return this._http_server;
+    }
+
+    getHttpsServer(): nodeHttps.Server {
+        return this._https_server;
+    }
+
     setConfig(config: ExpressControllerConfig) {
         this._config = config || {};
 

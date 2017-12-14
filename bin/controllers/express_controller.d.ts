@@ -1,4 +1,5 @@
 /// <reference types="express" />
+/// <reference types="node" />
 /**
  * @license
  * Developed by Murilo Parente <muriloparentel@gmail.com>
@@ -7,6 +8,8 @@
  * found in the LICENSE file.
  */
 import * as express from "express";
+import * as nodeHttp from "http";
+import * as nodeHttps from "https";
 import { LogController } from "./log.controller";
 export interface ExpressControllerConfig {
     http?: {
@@ -35,6 +38,8 @@ export declare class ExpressController {
     private _config;
     constructor(logCtrl: LogController);
     getApp(): express.Application;
+    getHttpServer(): nodeHttp.Server;
+    getHttpsServer(): nodeHttps.Server;
     setConfig(config: ExpressControllerConfig): void;
     startHttp(): Promise<any>;
     startHttps(): Promise<any>;

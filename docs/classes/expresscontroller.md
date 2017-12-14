@@ -17,6 +17,8 @@ Responsible to manage Express App instance.
 ### Methods
 
 * [getApp](expresscontroller.md#getapp)
+* [getHttpServer](expresscontroller.md#gethttpserver)
+* [getHttpsServer](expresscontroller.md#gethttpsserver)
 * [setConfig](expresscontroller.md#setconfig)
 * [startHttp](expresscontroller.md#starthttp)
 * [startHttps](expresscontroller.md#starthttps)
@@ -32,7 +34,7 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [controllers/express_controller.ts:43](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L43)*
+*Defined in [controllers/express_controller.ts:43](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L43)*
 
 
 
@@ -62,13 +64,59 @@ Responsible to manage Express App instance.
 
 
 
-*Defined in [controllers/express_controller.ts:49](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L49)*
+*Defined in [controllers/express_controller.ts:49](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L49)*
 
 
 
 
 
 **Returns:** `express.Application`
+
+
+
+
+
+___
+
+<a id="gethttpserver"></a>
+
+###  getHttpServer
+
+► **getHttpServer**(): `Server`
+
+
+
+
+*Defined in [controllers/express_controller.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L53)*
+
+
+
+
+
+**Returns:** `Server`
+
+
+
+
+
+___
+
+<a id="gethttpsserver"></a>
+
+###  getHttpsServer
+
+► **getHttpsServer**(): `Server`
+
+
+
+
+*Defined in [controllers/express_controller.ts:57](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L57)*
+
+
+
+
+
+**Returns:** `Server`
 
 
 
@@ -85,7 +133,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:53](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L53)*
+*Defined in [controllers/express_controller.ts:61](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L61)*
 
 
 
@@ -116,7 +164,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:65](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L65)*
+*Defined in [controllers/express_controller.ts:73](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L73)*
 
 
 
@@ -139,7 +187,7 @@ ___
 
 
 
-*Defined in [controllers/express_controller.ts:75](https://github.com/digitalinfluencers/ThinTS/blob/36b8825/src/controllers/express_controller.ts#L75)*
+*Defined in [controllers/express_controller.ts:83](https://github.com/digitalinfluencers/ThinTS/blob/d7cbdeb/src/controllers/express_controller.ts#L83)*
 
 
 
