@@ -1,6 +1,3 @@
-### DEPRECATED - This project is no longer maintained.
-We recommend using [NestJS](https://github.com/nestjs/nest) instead.
-
 # ThinTS
 
 [![Build Status][travis-image]][travis-url] [![NPM Version][npm-image]][npm-url] [![npm](https://img.shields.io/npm/dt/thints.svg)](https://www.npmjs.com/package/thints)
